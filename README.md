@@ -81,8 +81,19 @@ open items (§10). Grep for `[` to find them all.
 
 ## Deployment (Vercel)
 
-Zero-config: Vercel detects Next.js and runs `npm run build`. All routes are
-statically prerendered.
+Vercel runs `npm run build`; all routes are statically prerendered.
+
+`vercel.json` pins `"framework": "nextjs"`. Don't delete it. Without it the
+project falls back to whatever preset the dashboard holds, and if that is
+"Other" the build succeeds and then the deploy fails with:
+
+```
+Error: No Output Directory named "public" found after the Build completed.
+```
+
+That error is about the *deploy* step, not the build — the Next.js preset reads
+`.next`, the "Other" preset looks for a static `public/` and finds nothing.
+Settings in `vercel.json` override the dashboard, so fixing it here is durable.
 
 **Required env var** — set in Vercel → Settings → Environment Variables, for
 Production *and* Preview (see `.env.example`):
