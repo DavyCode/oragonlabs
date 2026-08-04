@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Oragonlabs design system
+   Tokens derived from the Terra Industries capture recorded in
+   /reference/terra-industries/STYLE-GUIDE.md
+   ------------------------------------------------------------------ */
+
+@theme {
+  --color-bone: #f0efea;
+  --color-ink: #171717;
+  --color-ink-2: #515151;
+  --color-near-black: #0a0a0a;
+  --color-grey: #828282;
+  --color-grey-70: #a3a3a3;
+  --color-grey-80: #e3e3e3;
+  --color-line: #ebebeb;
+  --color-card-border: #f3f3f3;
+  --color-dash: #c7c7c7;
+  --color-plate: #f1f1f1;
+
+  --font-sans: var(--font-rethink), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --gutter: 48px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Type ---------------------------------------------------------
+   Terra's signature move: display sizes tighten to -0.04em while
+   small uppercase labels open up to +0.5px. */
+
+.display {
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.18;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-grey);
+}
+
+.statement {
+  font-size: clamp(25px, 3.2vw, 36px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* --- The blueprint grid -------------------------------------------
+   Dashed 1px rules down the outer gutters plus L-brackets at section
+   corners. The strongest single motif on the reference site. */
+
+.blueprint {
+  position: relative;
+}
+
+.blueprint::before,
+.blueprint::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed var(--color-dash);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blueprint::before {
+  left: var(--gutter);
+}
+.blueprint::after {
+  right: var(--gutter);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gutter: 20px;
+  }
+  .blueprint::before,
+  .blueprint::after {
+    display: none;
+  }
+}
+
+.bracket::before,
+.bracket::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-color: var(--color-dash);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.bracket::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.bracket::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+.rule-dashed {
+  border-top: 1px dashed var(--color-dash);
+}
+
+/* --- Buttons -------------------------------------------------------
+   Two shapes in the reference: square for primary/product CTAs,
+   full pill for media CTAs. Both solid black. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 26px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+}
+.btn-ghost:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-on-dark {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+.btn-on-dark:hover {
+  background: transparent;
+  color: #fff;
+}
+
+.btn-pill {
+  border-radius: 9999px;
+}
+
+.arrow {
+  transition: transform 0.18s ease;
+}
+.btn:hover .arrow,
+.link-arrow:hover .arrow {
+  transform: translateX(4px);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* --- Spec table — bordered cells, label above value ---------------- */
+
+.spec-cell {
+  padding: 18px 22px;
+  border-top: 1px solid var(--color-line);
+}
+.spec-label {
+  font-weight: 600;
+  font-size: 15px;
+}
+.spec-value {
+  font-size: 15px;
+  color: var(--color-ink-2);
+  margin-top: 3px;
+}
+
+/* --- Scroll reveal -------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
