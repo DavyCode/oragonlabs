@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Logo } from "./Icons";
+import { Logo } from "./Brand";
 
 const LINKS = [
+  { label: "Labs", href: "/labs" },
   { label: "Products", href: "/products" },
   { label: "About", href: "/about" },
   { label: "Investors", href: "/investors" },
-  { label: "Home 2", href: "/home-2", flag: true },
 ];
 
 export default function Nav() {
@@ -25,8 +25,8 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Routes whose hero is light — nav must use dark ink over them.
-  const LIGHT_HERO = ["/home-2"];
+  // Routes whose hero is light, so the nav must use dark ink over them.
+  const LIGHT_HERO = ["/labs"];
   const onDark = !solid && !open && !LIGHT_HERO.includes(pathname);
 
   return (
@@ -56,17 +56,6 @@ export default function Nav() {
                 } ${active ? "opacity-100" : "opacity-80"}`}
               >
                 {l.label}
-                {l.flag && (
-                  <span
-                    className={`rounded-full px-1.5 py-0.5 text-[9px] tracking-[0.4px] ${
-                      onDark
-                        ? "bg-white/15 text-white/80"
-                        : "bg-grey-80 text-ink-2"
-                    }`}
-                  >
-                    A/B
-                  </span>
-                )}
                 {active && (
                   <span
                     className={`h-1 w-1 rounded-full ${
@@ -118,11 +107,6 @@ export default function Nav() {
               className="block border-b border-line py-3.5 text-[13px] font-semibold uppercase tracking-[0.5px]"
             >
               {l.label}
-              {l.flag && (
-                <span className="ml-2 rounded-full bg-grey-80 px-1.5 py-0.5 text-[9px] text-ink-2">
-                  A/B
-                </span>
-              )}
             </Link>
           ))}
           <Link

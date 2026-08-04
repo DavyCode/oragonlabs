@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /* Every entry is a research direction, not a shipping product. Status values
-   are placeholders — set them honestly per programme as work progresses. */
+   are placeholders; set them honestly per programme as work progresses. */
 const PRODUCTS = [
   {
     n: "01",
@@ -116,7 +116,7 @@ export default function ProductsPage() {
         lede="Oragonlabs is a research lab, and this is our agenda in the open. Each programme below is an area where we believe sovereign, efficient AI changes what an institution can do, and where we are actively doing the research."
       />
 
-      {/* Honest status banner — this whole page describes intent, not inventory. */}
+      {/* Honest status banner: this whole page describes intent, not inventory. */}
       <section className="border-b border-line bg-plate">
         <div className="px-5 py-7 md:px-12">
           <div className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-x-4 gap-y-2">

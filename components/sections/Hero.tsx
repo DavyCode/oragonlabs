@@ -1,4 +1,3 @@
-import ActivationField from "../ActivationField";
 import { Arrow } from "../Icons";
 
 export default function Hero() {
@@ -7,12 +6,6 @@ export default function Hero() {
       id="top"
       className="relative min-h-[100svh] overflow-hidden bg-near-black"
     >
-      <ActivationField />
-
-      {/* Shade the left so the headline holds contrast, and let the activation
-          field stay legible on the right rather than crushing it. */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,10,0.94)_0%,rgba(10,10,10,0.86)_32%,rgba(10,10,10,0.4)_62%,rgba(10,10,10,0.55)_100%)]" />
-
       {/* Blueprint gutters, drawn light over the dark field. */}
       <div className="pointer-events-none absolute inset-y-0 left-5 border-l border-dashed border-white/20 md:left-12" />
       <div className="pointer-events-none absolute inset-y-0 right-5 border-l border-dashed border-white/20 md:right-12" />

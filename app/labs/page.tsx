@@ -1,28 +1,47 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
-import ActivationField from "@/components/ActivationField";
 import Reveal from "@/components/Reveal";
 import Contact from "@/components/sections/Contact";
-import Mission from "@/components/sections/Mission";
 import { Arrow } from "@/components/Icons";
 
-export const metadata: Metadata = {
-  title: { absolute: "Oragonlabs | An AI research lab putting AI to work" },
+export const metadata: Metadata = pageMetadata({
+  title: "Labs",
   description:
-    "Oragonlabs is an AI research lab. We research real-world applications of AI for everyday businesses, organisations and the problems that matter most to people, and deploy them at scale.",
-  // A/B variant of `/` — kept out of the index so the two homepages don't
-  // compete as duplicate content.
-  robots: { index: false, follow: true },
-};
+    "Oragon Labs is the research arm of Oragonlabs. We work on making capable AI small enough, cheap enough and local enough to run where it is actually needed. We publish what we find, including what fails.",
+  path: "/labs",
+});
 
 /* ------------------------------------------------------------------
-   HOME 2 — experimental variant.
-   Home 1 leads with sovereignty and emerging markets.
-   This variant leads with the research-lab identity and the breadth of
-   sectors AI can be applied to, keeping sovereignty as the method rather
-   than the headline. Light hero, so the two are visually distinguishable
-   at a glance when comparing.
+   LABS: the research arm.
+   The homepage sells the company; this page explains the lab: what it
+   works on, what it produces, and how it decides what to pursue.
+   Light hero, so it reads as a distinct destination from `/`.
    ------------------------------------------------------------------ */
+
+/** What the lab actually ships as a lab: outputs, not products. */
+const OUTPUTS = [
+  {
+    n: "01",
+    k: "Field notes",
+    v: "Short, concrete write-ups of what we tried and what happened. A model on hardware that shouldn't run it, a language nobody has benchmarked, a deployment that broke in an interesting way.",
+  },
+  {
+    n: "02",
+    k: "Benchmarks",
+    v: "Numbers measured on the hardware institutions here actually own, not on an A100 nobody in the room has. Reproducible, with the setup published alongside.",
+  },
+  {
+    n: "03",
+    k: "Open weights",
+    v: "Models we train for low-resource languages and narrow tasks, released so the people they serve are not renting access to their own language.",
+  },
+  {
+    n: "04",
+    k: "Reference architectures",
+    v: "The deployment patterns that survived contact with a real hospital, bank or ministry, documented so the next institution doesn't start from zero.",
+  },
+];
 
 const HOW_WE_WORK = [
   {
@@ -93,32 +112,30 @@ const AGENDA = [
   ["Offline-first systems", "Treating intermittent power and patchy networks as design inputs, not edge cases."],
 ];
 
-export default function HomeTwo() {
+export default function LabsPage() {
   return (
     <>
-      {/* --- Hero — light variant ---------------------------------------- */}
+      {/* --- Hero, light variant ----------------------------------------- */}
       <section className="relative min-h-[100svh] overflow-hidden bg-bone">
-        <ActivationField tone="light" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(240,239,234,0.96)_0%,rgba(240,239,234,0.88)_34%,rgba(240,239,234,0.45)_66%,rgba(240,239,234,0.6)_100%)]" />
         <div className="pointer-events-none absolute inset-y-0 left-5 border-l border-dashed border-dash md:left-12" />
         <div className="pointer-events-none absolute inset-y-0 right-5 border-l border-dashed border-dash md:right-12" />
 
         <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-5 pb-14 pt-32 md:px-12 md:pb-16">
           <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-[660px] flex-1">
-              <p className="eyebrow mb-5">AI Research Lab</p>
+              <p className="eyebrow mb-5">Oragon Labs · Research</p>
               <h1 className="display text-[clamp(38px,5.2vw,66px)]">
-                We research AI. Then we put it to work.
+                The lab behind the products.
               </h1>
               <p className="mt-7 max-w-[56ch] text-[17px] leading-relaxed text-ink-2 md:text-[18px]">
-                Oragonlabs is an AI research lab finding real-world applications of
-                AI for everyday businesses, institutions and the problems that
-                matter most to people, and building them so they work at scale,
-                affordably, wherever they&apos;re needed.
+                Oragon Labs is our research arm. We work on one hard problem:
+                making capable AI small enough, cheap enough and local enough to
+                run where it is actually needed. We publish what we find,
+                including the experiments that fail.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3">
-                <a href="#contact" className="btn">
-                  Work with the lab <Arrow />
+                <a href="#outputs" className="btn">
+                  What the lab publishes <Arrow />
                 </a>
                 <a href="#sectors" className="btn btn-ghost btn-pill border-dash">
                   See where it applies <Arrow />
@@ -127,22 +144,85 @@ export default function HomeTwo() {
             </div>
 
             <div className="w-full max-w-[350px] shrink-0 border border-dash/70 bg-white p-6">
-              <p className="eyebrow mb-3">Our position</p>
+              <p className="eyebrow mb-3">The research question</p>
               <p className="text-[16px] font-medium leading-snug">
                 The best AI research in the world is useless to most of the world
                 if it only runs in a data centre they can&apos;t reach.
               </p>
               <p className="mt-4 text-[14.5px] leading-relaxed text-ink-2">
-                So our research question is not just <em>can the model do it</em>.
-                It&apos;s <em>can it do it here</em>.
+                So ours is not just <em>can the model do it</em>. It&apos;s{" "}
+                <em>can it do it here</em>: on this hardware, in this language,
+                on this budget, with the power off.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Hero is bone here, so the mission band takes white. */}
-      <Mission tone="white" />
+      {/* --- What the lab is, and what it produces -------------------------
+          Replaces the shared Mission band here: that states the company's
+          mission and already leads the homepage. This page has to answer a
+          narrower question: what does the research arm actually do? */}
+      <section id="outputs" className="blueprint bg-white">
+        <div className="px-5 py-24 md:px-12 md:py-32">
+          <div className="mx-auto max-w-[1180px]">
+            <Reveal>
+              <p className="eyebrow mb-6">The lab</p>
+              <h2 className="statement max-w-[28ch]">
+                We are a research lab first. The products come out of the
+                research, not the other way round.
+              </h2>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="mt-14 grid gap-10 border-t border-dash/60 pt-12 lg:grid-cols-[1.05fr_0.95fr]">
+                <p className="max-w-[54ch] text-[17px] leading-relaxed text-ink-2">
+                  Most of what the frontier produces assumes a data centre, a
+                  fibre line and a budget in dollars. Strip those away and most
+                  of the answers stop working. The lab exists to find the ones
+                  that don&apos;t: smaller models, inference that runs beside
+                  the data, languages the field has no commercial reason to
+                  serve, systems that survive a power cut.
+                </p>
+                <p className="max-w-[46ch] text-[19px] font-medium leading-relaxed tracking-[-0.01em]">
+                  A lab that only publishes its wins is a marketing department.
+                  We publish the failures too. They are usually the more useful
+                  half.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <p className="eyebrow mb-8 mt-20">What the lab publishes</p>
+            </Reveal>
+
+            <div className="grid gap-px bg-line md:grid-cols-2 lg:grid-cols-4">
+              {OUTPUTS.map((o, i) => (
+                <Reveal key={o.n} delay={i * 70}>
+                  <div className="h-full bg-white p-8">
+                    <span className="font-mono text-[13px] text-grey">
+                      {o.n}
+                    </span>
+                    <h3 className="mt-4 text-[20px] font-semibold tracking-[-0.015em]">
+                      {o.k}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
+                      {o.v}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal>
+              <p className="mt-10 text-[14px] text-grey">
+                [Field notes and benchmarks are not published yet. This is where
+                they will live. See §9 of the positioning brief.]
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
       {/* --- What kind of lab --------------------------------------------- */}
       <section className="relative bg-near-black text-white">

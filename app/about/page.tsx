@@ -28,22 +28,23 @@ type Founder = {
 
 const FOUNDERS: Founder[] = [
   {
-    // NOTE: name inferred from your email + LinkedIn handle — correct it if wrong.
-    name: "Paul Azemoh",
-    role: "[Co-founder & CEO]",
-    photo: null, // → "/team/paul-azemoh.jpg"
-    experience: "[N+ years]",
-    bio: "[Two or three sentences: what you did before Oragonlabs, the specific problem that made you start it, and the credential a procurement officer or investor would care about.]",
-    focus: ["[Area of focus]", "[Area of focus]"],
+    name: "David Azemoh",
+    role: "Chief Engineer",
+    photo: null, // → "/team/david-azemoh.jpg"
+    experience: "8+ years",
+    bio: "David has spent eight years building and scaling end-to-end software systems, from interfaces to secure full-stack applications and high-performance backends. He has taken systems from first commit to production under real load, closing the distance between a prototype that works in a demo and infrastructure an institution can depend on daily, and has built the engineering teams that keep them running. [One concrete proof point: the system, the scale it reached, or what it changed for the people using it.]",
+    focus: ["Full-stack systems", "Cloud & DevOps"],
+    // TODO: unverified. This handle was a guess; confirm before launch.
     linkedin: "https://www.linkedin.com/in/dazemoh",
   },
   {
-    name: "[Co-founder name]",
-    role: "[Co-founder & CTO]",
-    photo: null,
-    experience: "[N+ years]",
-    bio: "[Two or three sentences on their engineering background (model efficiency, edge deployment, systems) and what they've shipped.]",
-    focus: ["[Area of focus]", "[Area of focus]"],
+    name: "Daniel Adama",
+    role: "Chief AI Researcher",
+    photo: null, // → "/team/daniel-adama.jpg"
+    experience: "3+ years",
+    bio: "Daniel is a researcher first. His work spans the width of applied AI: computer vision and object detection, optical character recognition, face and gesture recognition, speech-to-text, natural language processing and recommender systems, built end to end from data preparation through deployment and evaluation. The through-line is efficiency, driving deep networks and CNNs down to run inside hardware budgets that would normally rule them out, which is the exact problem this lab exists to solve. [One concrete proof point: the model, the constraint it beat, or where it ran.]",
+    focus: ["Computer vision", "Model efficiency"],
+    linkedin: "https://www.linkedin.com/in/danieladama/",
   },
 ];
 
@@ -131,8 +132,11 @@ export default function AboutPage() {
                   <p className="text-[19px] text-ink">
                     Oragonlabs was founded in{" "}
                     <span className="font-medium">[city, country]</span> by{" "}
-                    <span className="font-medium">[founder names]</span>.{" "}
-                    <span className="font-medium">[one line on backgrounds]</span>.
+                    <span className="font-medium">David Azemoh</span> and{" "}
+                    <span className="font-medium">Daniel Adama</span>, a systems
+                    engineer and a machine learning researcher who kept running
+                    into the same wall: the models worked, but nothing about how
+                    they were delivered fit the institutions that needed them.
                   </p>
                   <p>
                     We are a research lab before we are a product company. Our

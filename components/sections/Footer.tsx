@@ -1,4 +1,4 @@
-import { Logo } from "../Icons";
+import { Logo } from "../Brand";
 
 const COLUMNS = [
   {
@@ -13,7 +13,7 @@ const COLUMNS = [
     head: "Explore",
     links: [
       ["Home", "/"],
-      ["Home 2 (experimental)", "/home-2"],
+      ["Labs", "/labs"],
     ],
   },
   {

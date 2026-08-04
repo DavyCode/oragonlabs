@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/investors",
 });
 
-/* PLACEHOLDER — every figure on this page must be replaced with your real
+/* PLACEHOLDER: every figure on this page must be replaced with your real
    numbers before publishing. Nothing here is a claim we can stand behind. */
 const RAISE = [
   { k: "Stage", v: "[Pre-seed / Seed]" },

@@ -4,13 +4,16 @@ export const alt = "Oragonlabs | An AI research lab for the real world";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/* Satori (the ImageResponse renderer) supports a CSS subset: flex only,
-   no CSS variables, no Tailwind classes. Tokens are inlined from
-   app/globals.css by hand. */
-const INK = "#171717";
-const INK_2 = "#515151";
-const BONE = "#f0efea";
-const DASH = "#c7c7c7";
+/* Satori (the ImageResponse renderer) supports a CSS subset: flex only, no
+   CSS variables, no Tailwind classes. Brand tokens inlined by hand.
+   Brand book §03 sets the social banner as the mark on Night. */
+const NIGHT = "#0E0F12";
+const PAPER = "#EDEDEB";
+
+const MARK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+<path fill="#fff" fill-rule="evenodd" d="M95.5 42.4L70.6 17.5L35.4 17.5L10.5 42.4L10.5 68.21L95.5 49.79ZM77.9 49.7L63.3 35.1L42.7 35.1L28.1 49.7L28.1 64.39L77.9 53.61Z"/>
+<path fill="#fff" fill-rule="evenodd" d="M24.5 68.21L24.5 77.6L49.4 102.5L84.6 102.5L109.5 77.6L109.5 49.79ZM42.1 64.39L42.1 70.3L56.7 84.9L77.3 84.9L91.9 70.3L91.9 53.61Z"/>
+</svg>`;
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -22,33 +25,34 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: BONE,
+          background: NIGHT,
           padding: 72,
           fontFamily: "sans-serif",
         }}
       >
-        {/* Wordmark */}
+        {/* Lockup: mark + wordmark, brand book §02 proportions */}
         <div style={{ display: "flex", alignItems: "center" }}>
-          <svg width="44" height="44" viewBox="0 0 26 26" fill="none">
-            <path
-              d="M4 8.5V4h18M4 17.5V22h18"
-              stroke={INK}
-              strokeWidth="2.4"
-              strokeLinecap="square"
-            />
-            <circle cx="13" cy="13" r="3.6" fill={INK} />
-          </svg>
-          <span
+          <img
+            width={52}
+            height={52}
+            alt=""
+            src={`data:image/svg+xml;utf8,${encodeURIComponent(MARK)}`}
+          />
+          <div
             style={{
-              marginLeft: 16,
-              fontSize: 34,
+              display: "flex",
+              marginLeft: 39,
+              fontSize: 40,
               fontWeight: 600,
-              letterSpacing: "-0.02em",
-              color: INK,
+              letterSpacing: "-0.03em",
+              color: "#fff",
             }}
           >
-            Oragonlabs
-          </span>
+            <span>Oragon</span>
+            <span style={{ fontWeight: 400, color: "rgba(255,255,255,0.5)" }}>
+              labs
+            </span>
+          </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -56,9 +60,9 @@ export default function OpengraphImage() {
             style={{
               fontSize: 68,
               fontWeight: 600,
-              letterSpacing: "-0.04em",
+              letterSpacing: "-0.03em",
               lineHeight: 1.1,
-              color: INK,
+              color: PAPER,
               maxWidth: 900,
             }}
           >
@@ -69,7 +73,7 @@ export default function OpengraphImage() {
               marginTop: 28,
               fontSize: 27,
               lineHeight: 1.45,
-              color: INK_2,
+              color: "rgba(237,237,235,0.6)",
               maxWidth: 860,
             }}
           >
@@ -81,12 +85,12 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             alignItems: "center",
-            borderTop: `1px solid ${DASH}`,
+            borderTop: "1px solid rgba(237,237,235,0.2)",
             paddingTop: 26,
             fontSize: 20,
             letterSpacing: "0.5px",
             textTransform: "uppercase",
-            color: INK_2,
+            color: "rgba(237,237,235,0.5)",
           }}
         >
           Research · Sovereignty · Proximity

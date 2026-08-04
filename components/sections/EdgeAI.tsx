@@ -19,7 +19,7 @@ const PROOFS = [
 ];
 
 /* NOTE: these figures are placeholders. Replace with numbers from your own
-   benchmark before publishing — see §9 "Proof points to develop". */
+   benchmark before publishing; see §9 "Proof points to develop". */
 const STATS = [
   { label: "Model size", value: "[0.5B]", unit: "parameters" },
   { label: "Hardware cost", value: "[$X]", unit: "per unit" },
@@ -66,7 +66,7 @@ export default function EdgeAI() {
                 </p>
               </div>
 
-              {/* Spec card — field-note aesthetic, mono numerals. */}
+              {/* Spec card: field-note aesthetic, mono numerals. */}
               <div className="border border-white/15">
                 <div className="flex items-center justify-between border-b border-white/15 px-6 py-4">
                   <span className="eyebrow text-white/45">

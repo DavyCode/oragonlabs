@@ -1,7 +1,7 @@
 import Reveal from "../Reveal";
 import { Arrow } from "../Icons";
 
-/* PLACEHOLDER CONTENT — industries are unconfirmed in the positioning brief
+/* PLACEHOLDER CONTENT: industries are unconfirmed in the positioning brief
    (§10, open items). Swap these three for your confirmed verticals and add one
    concrete pilot per industry as they land: proof beats promises. */
 const INDUSTRIES = [
@@ -40,7 +40,7 @@ const INDUSTRIES = [
   },
 ];
 
-/** Schematic plate — the perimeter diagram, standing in for product imagery. */
+/** Schematic plate: the perimeter diagram, standing in for product imagery. */
 function Perimeter({ label }: { label: string }) {
   return (
     <div className="relative flex aspect-[4/3] w-full items-center justify-center bg-plate p-8">

@@ -1,7 +1,7 @@
 import Reveal from "../Reveal";
 
 /* The six distance problems from §2 of the positioning brief, compressed to
-   four as the brief recommends. Presented as a spec sheet — the failure and
+   four as the brief recommends. Presented as a spec sheet: the failure and
    its consequence, stated plainly. */
 const GAPS = [
   {

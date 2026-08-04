@@ -1,7 +1,7 @@
 import Reveal from "../Reveal";
 
 /**
- * Mission band — sits directly under the hero, mirroring the reference site's
+ * Mission band. Sits directly under the hero, mirroring the reference site's
  * structure (hero → mission statement on bone → everything else).
  *
  * The statement follows the same grammar as the reference's own mission line:

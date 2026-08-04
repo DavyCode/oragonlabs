@@ -61,6 +61,7 @@ export function pageMetadata({
 /** Routes in the public sitemap, in crawl-priority order. */
 export const ROUTES = [
   { path: "/", priority: 1 },
+  { path: "/labs", priority: 0.9 },
   { path: "/products", priority: 0.8 },
   { path: "/about", priority: 0.7 },
   { path: "/investors", priority: 0.6 },

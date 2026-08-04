@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Rethink_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const rethink = Rethink_Sans({
-  variable: "--font-rethink",
+// Brand book: Inter (SIL OFL). Variable axis so the wordmark's 450 suffix
+// weight is available alongside the 600 it locks up against.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 const TITLE = "Oragonlabs | An AI research lab for the real world";
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${rethink.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Nav />
         <main className="flex-1">{children}</main>

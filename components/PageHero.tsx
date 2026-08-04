@@ -1,5 +1,3 @@
-import ActivationField from "./ActivationField";
-
 export default function PageHero({
   eyebrow,
   title,
@@ -13,8 +11,6 @@ export default function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden bg-near-black text-white">
-      <ActivationField />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(10,10,10,0.94)_0%,rgba(10,10,10,0.84)_38%,rgba(10,10,10,0.45)_70%,rgba(10,10,10,0.6)_100%)]" />
       <div className="pointer-events-none absolute inset-y-0 left-5 border-l border-dashed border-white/20 md:left-12" />
       <div className="pointer-events-none absolute inset-y-0 right-5 border-l border-dashed border-white/20 md:right-12" />
 

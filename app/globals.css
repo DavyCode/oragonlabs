@@ -2,24 +2,29 @@
 
 /* ------------------------------------------------------------------
    Oragonlabs design system
-   Tokens derived from the Terra Industries capture recorded in
-   /reference/terra-industries/STYLE-GUIDE.md
+   Colour and type come from the brand book (oragon-brand-book.html).
+   The layout motifs (blueprint gutters, brackets, dashed rules) and the
+   type metrics below predate it, carried over from the Terra Industries
+   capture the first pass was built against.
    ------------------------------------------------------------------ */
 
 @theme {
-  --color-bone: #f0efea;
-  --color-ink: #171717;
+  /* Brand book §footer · Ink #141414 · Paper #EDEDEB · Signal #1A16E8 · Night #0E0F12 */
+  --color-ink: #141414;
+  --color-bone: #ededeb;
+  --color-near-black: #0e0f12;
+  --color-signal: #1a16e8;
+
   --color-ink-2: #515151;
-  --color-near-black: #0a0a0a;
-  --color-grey: #828282;
-  --color-grey-70: #a3a3a3;
+  --color-grey: #75736c;
+  --color-grey-70: #9a978f;
   --color-grey-80: #e3e3e3;
   --color-line: #ebebeb;
   --color-card-border: #f3f3f3;
   --color-dash: #c7c7c7;
   --color-plate: #f1f1f1;
 
-  --font-sans: var(--font-rethink), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -38,8 +43,8 @@ body {
 }
 
 /* --- Type ---------------------------------------------------------
-   Terra's signature move: display sizes tighten to -0.04em while
-   small uppercase labels open up to +0.5px. */
+   Display sizes tighten to -0.04em while small uppercase labels open up
+   to +0.5px. */
 
 .display {
   font-weight: 600;
@@ -187,7 +192,7 @@ body {
   font-size: 15px;
 }
 
-/* --- Spec table — bordered cells, label above value ---------------- */
+/* --- Spec table: bordered cells, label above value ---------------- */
 
 .spec-cell {
   padding: 18px 22px;

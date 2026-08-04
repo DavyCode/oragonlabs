@@ -22,7 +22,7 @@ export default function Contact({
             <p className="mx-auto mt-7 max-w-[56ch] text-[17px] leading-relaxed text-white/60">
               {body}
             </p>
-            {/* PLACEHOLDER — swap for your real address. */}
+            {/* PLACEHOLDER: swap for your real address. */}
             <a href="mailto:hello@oragonlabs.com" className="btn btn-on-dark mt-10">
               Get in touch: hello@oragonlabs.com <Arrow />
             </a>
