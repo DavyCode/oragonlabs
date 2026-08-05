@@ -12,7 +12,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const TITLE = "Oragonlabs | An AI research lab for the real world";
+const TITLE =
+  "Oragonlabs | AI Research lab - Mission-critical Sovereign AI for emerging markets";
 const DESCRIPTION =
   "Oragonlabs is an AI research lab developing mission-critical solutions that are sovereign and affordable for businesses, governments and everyday people in emerging markets.";
 
