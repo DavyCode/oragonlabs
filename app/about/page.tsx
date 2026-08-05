@@ -32,17 +32,16 @@ const FOUNDERS: Founder[] = [
     role: "Chief Engineer",
     photo: null, // → "/team/david-azemoh.jpg"
     experience: "8+ years",
-    bio: "David has spent eight years building and scaling end-to-end software systems, from interfaces to secure full-stack applications and high-performance backends. He has taken systems from first commit to production under real load, closing the distance between a prototype that works in a demo and infrastructure an institution can depend on daily, and has built the engineering teams that keep them running. [One concrete proof point: the system, the scale it reached, or what it changed for the people using it.]",
-    focus: ["Full-stack systems", "Cloud & DevOps"],
-    // TODO: unverified. This handle was a guess; confirm before launch.
+    bio: "David owns the half of the problem that decides whether AI research reaches anyone: the engineering. Eight years architecting distributed systems serving more than 5 million monthly active users, across national infrastructure, regulated finance and public-sector platforms, is the discipline model deployment actually demands, where inference has to hold under real load, services have to stay available when the network does not, and data has to stay inside the building it belongs to. He leads deployment engineering at the lab, taking models off the bench and into institutions that cannot afford them to fail, and has built and led the engineering teams that keep systems at that scale running.",
+    focus: ["AI infrastructure", "Edge deployment"],
     linkedin: "https://www.linkedin.com/in/dazemoh",
   },
   {
     name: "Daniel Adama",
     role: "Chief AI Researcher",
     photo: null, // → "/team/daniel-adama.jpg"
-    experience: "3+ years",
-    bio: "Daniel is a researcher first. His work spans the width of applied AI: computer vision and object detection, optical character recognition, face and gesture recognition, speech-to-text, natural language processing and recommender systems, built end to end from data preparation through deployment and evaluation. The through-line is efficiency, driving deep networks and CNNs down to run inside hardware budgets that would normally rule them out, which is the exact problem this lab exists to solve. [One concrete proof point: the model, the constraint it beat, or where it ran.]",
+    experience: "6+ years",
+    bio: "Daniel is a researcher first. His work spans the width of applied AI: computer vision and object detection, optical character recognition, face and gesture recognition, speech-to-text, natural language processing and recommender systems, built end to end from data preparation through deployment and evaluation. The through-line is efficiency, driving deep networks and CNNs down to run inside hardware budgets that would normally rule them out, which is the exact problem this lab exists to solve.",
     focus: ["Computer vision", "Model efficiency"],
     linkedin: "https://www.linkedin.com/in/danieladama/",
   },

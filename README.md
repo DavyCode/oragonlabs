@@ -72,7 +72,7 @@ open items (§10). Grep for `[` to find them all.
 
 | Where | What's needed |
 |---|---|
-| `app/about/page.tsx` | Founders are filled in. Still open: **founded year, city/country, languages supported, hiring locations** — and David's LinkedIn handle is an unverified guess (see the `TODO`). Portraits: drop files in `public/team/` and set each founder's `photo` to the path; `Portrait` already renders `next/image` when it's set. |
+| `app/about/page.tsx` | Founders are filled in. Still open: **founded year, city/country, languages supported, hiring locations**. Portraits: drop files in `public/team/` and set each founder's `photo` to the path; `Portrait` already renders `next/image` when it's set. |
 | `app/investors/page.tsx` | **Every figure is a placeholder** — stage, raise size, committed, instrument, use-of-funds percentages, traction counts. Also confirm the legal disclaimer wording with counsel: rules on publicly advertising a raise vary by jurisdiction. |
 | `app/products/page.tsx` | Codenames and per-programme `Status` values. Link the data-handling policy in the governance section once written. |
 | `sections/EdgeAI.tsx` | **The four spec-card figures are placeholders** (`[0.5B]`, `[$X]`, `[N]`). Replace with your own benchmark numbers or delete the card — don't ship invented figures. |
