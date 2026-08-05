@@ -14,10 +14,9 @@ export const metadata: Metadata = pageMetadata({
 /* PLACEHOLDER: every figure on this page must be replaced with your real
    numbers before publishing. Nothing here is a claim we can stand behind. */
 const RAISE = [
-  { k: "Stage", v: "[Pre-seed / Seed]" },
-  { k: "Raising", v: "[$X]" },
-  { k: "Committed", v: "[$X]" },
-  { k: "Instrument", v: "[SAFE / equity]" },
+  { k: "Stage", v: "Pre-seed" },
+  { k: "Raising", v: "$300,000" },
+  { k: "Instrument", v: "SAFE / equity" },
 ];
 
 const THESIS = [
@@ -44,17 +43,17 @@ const THESIS = [
 ];
 
 const USE_OF_FUNDS = [
-  ["Research", "[%] for efficient models, on-device inference, local-language work"],
-  ["Deployment engineering", "[%] for reference architectures and pilot delivery"],
-  ["Go-to-market", "[%] for government and enterprise partnerships in [markets]"],
-  ["Operations", "[%] for [runway in months]"],
+  ["Research", "20% for efficient models, on-device inference, local-language work"],
+  ["Deployment engineering", "40% for reference architectures and pilot delivery"],
+  ["Go-to-market", "20% for partnerships across government, finance, healthcare, robotics and beyond"],
+  ["Operations", "20% for [runway in months]"],
 ];
 
 const TRACTION = [
-  { k: "Pilots in discussion", v: "[N]" },
-  { k: "Institutional partners", v: "[N]" },
-  { k: "Target markets", v: "[list]" },
-  { k: "Team", v: "[N]" },
+  { k: "Pilots in discussion", v: "3" },
+  { k: "Institutional partners", v: "2" },
+  { k: "Target markets", v: "Government, finance, healthcare, robotics etc." },
+  { k: "Team", v: "ML engineers & AI researchers" },
 ];
 
 export default function InvestorsPage() {
@@ -112,7 +111,7 @@ export default function InvestorsPage() {
             </Reveal>
 
             <Reveal delay={80}>
-              <dl className="mt-14 grid gap-px border border-white/15 bg-white/15 sm:grid-cols-2 lg:grid-cols-4">
+              <dl className="mt-14 grid gap-px border border-white/15 bg-white/15 sm:grid-cols-2 lg:grid-cols-3">
                 {RAISE.map((r) => (
                   <div key={r.k} className="bg-near-black px-7 py-9">
                     <dt className="text-[12.5px] uppercase tracking-[0.5px] text-white/40">
@@ -208,7 +207,7 @@ export default function InvestorsPage() {
                   <p className="eyebrow mb-5">In the data room</p>
                   <ul className="space-y-3.5">
                     {[
-                      "Thesis and market sizing for [target markets]",
+                      "Thesis and market sizing for government, finance, healthcare and robotics",
                       "Technical roadmap and research agenda",
                       "Product programmes and pilot pipeline",
                       "Financial model and [runway] plan",

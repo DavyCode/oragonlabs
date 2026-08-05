@@ -129,25 +129,31 @@ export default function AboutPage() {
               <Reveal delay={90}>
                 <div className="space-y-6 text-[17px] leading-relaxed text-ink-2">
                   <p className="text-[19px] text-ink">
-                    Oragonlabs was founded in{" "}
-                    <span className="font-medium">[city, country]</span> by{" "}
-                    <span className="font-medium">David Azemoh</span> and{" "}
-                    <span className="font-medium">Daniel Adama</span>, a systems
-                    engineer and a machine learning researcher who kept running
-                    into the same wall: the models worked, but nothing about how
-                    they were delivered fit the institutions that needed them.
+                    Oragonlabs started with engineers building AI for
+                    institutions that needed it, and watching the work fall over
+                    for reasons that had nothing to do with the models. The
+                    models were fine. Everything around them took things for
+                    granted: a data centre nearby, a network that stayed up, and
+                    an organisation happy to send its records abroad just to get
+                    an answer back.
                   </p>
                   <p>
-                    We are a research lab before we are a product company. Our
-                    work starts with a question: can this model run on hardware
-                    this institution already owns, in the language its users
-                    actually speak, without its data ever leaving the building?
-                    It ends with a system somebody depends on.
+                    Two things got in the way, and neither of them was the
+                    technology. One was what it cost to even start. Using AI
+                    meant rebuilding: new infrastructure, new specialists, money
+                    signed off long before anyone had seen it work. The other
+                    was trust. No hospital is going to hand over patient
+                    records, and no ministry is going to hand over citizen data,
+                    to a system it can&apos;t inspect, running somewhere it
+                    can&apos;t visit, under terms it didn&apos;t write. Most of
+                    them looked at that and said no.
                   </p>
                   <p className="text-ink">
-                    We build from <span className="font-medium">[location]</span>{" "}
-                    because proximity isn&apos;t just one of our values.
-                    It&apos;s our address.
+                    We&apos;re a research lab before we&apos;re a product
+                    company. Our work starts with a question: can this model run
+                    on hardware this institution already owns, in the language
+                    its users actually speak, without its data ever leaving the
+                    building? It ends with a system somebody depends on.
                   </p>
                 </div>
               </Reveal>

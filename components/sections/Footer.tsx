@@ -23,6 +23,10 @@ const COLUMNS = [
       ["Partner with us", "/#contact"],
     ],
   },
+  {
+    head: "Follow",
+    links: [["LinkedIn", "https://www.linkedin.com/company/oragonlabs"]],
+  },
 ];
 
 export default function Footer() {
@@ -44,23 +48,28 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-x-14 gap-y-8 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-x-14 gap-y-8 sm:grid-cols-4">
               {COLUMNS.map((col) => (
                 <div key={col.head}>
                   <p className="eyebrow mb-4 md:mb-4">{col.head}</p>
                   {/* Rows are touch-sized on mobile and tighten back up on
                       desktop, where the pointer is precise. */}
                   <ul className="space-y-0 md:space-y-2.5">
-                    {col.links.map(([label, href]) => (
-                      <li key={label}>
-                        <a
-                          href={href}
-                          className="inline-flex min-h-11 items-center text-[14.5px] text-ink-2 transition-colors hover:text-ink md:min-h-0"
-                        >
-                          {label}
-                        </a>
-                      </li>
-                    ))}
+                    {col.links.map(([label, href]) => {
+                      const external = href.startsWith("http");
+                      return (
+                        <li key={label}>
+                          <a
+                            href={href}
+                            target={external ? "_blank" : undefined}
+                            rel={external ? "noreferrer" : undefined}
+                            className="inline-flex min-h-11 items-center text-[14.5px] text-ink-2 transition-colors hover:text-ink md:min-h-0"
+                          >
+                            {label}
+                          </a>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}
