@@ -30,7 +30,11 @@ export default function Footer() {
     <footer className="bg-bone">
       <div className="px-5 py-16 md:px-12">
         <div className="mx-auto max-w-[1180px]">
-          <div className="flex flex-col justify-between gap-10 md:flex-row">
+          {/* Side-by-side only from `lg`. At `md` the blurb and the three link
+              columns together need more width than the viewport has, and
+              "hello@oragonlabs.com" is one unbreakable 157px word — it pushed
+              the page into horizontal scroll on phones in landscape. */}
+          <div className="flex flex-col justify-between gap-10 lg:flex-row">
             <div className="max-w-[38ch]">
               <Logo />
               <p className="mt-5 text-[15px] leading-relaxed text-ink-2">
