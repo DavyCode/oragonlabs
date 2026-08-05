@@ -192,6 +192,15 @@ body {
   font-size: 15px;
 }
 
+/* Touch-sized on phones. Inline links sitting inside a sentence are left
+   alone — WCAG 2.5.8 exempts targets constrained by their line of text, and
+   padding them would break the paragraph's rhythm. */
+@media (max-width: 900px) {
+  .link-arrow {
+    min-height: 44px;
+  }
+}
+
 /* --- Spec table: bordered cells, label above value ---------------- */
 
 .spec-cell {
@@ -222,6 +231,55 @@ body {
   transform: none;
 }
 
+/* --- Founder card --------------------------------------------------
+   The whole card is one hover target, so the portrait, the name and the
+   bio respond together wherever the pointer lands. Easing matches the
+   scroll reveal above; the portrait runs slower than the type so the
+   image reads as settling rather than snapping. */
+
+.founder-card .founder-photo {
+  filter: grayscale(1);
+  transform: scale(1);
+  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-card:hover .founder-photo,
+.founder-card:focus-within .founder-photo {
+  filter: grayscale(0);
+  transform: scale(1.07);
+}
+
+.founder-card .founder-name {
+  display: inline-block;
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-card:hover .founder-name,
+.founder-card:focus-within .founder-name {
+  transform: scale(1.035);
+}
+
+.founder-card .founder-bio {
+  transition: color 0.5s ease;
+}
+
+.founder-card:hover .founder-bio,
+.founder-card:focus-within .founder-bio {
+  color: var(--color-ink);
+}
+
+.founder-card .founder-tag {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.founder-card:hover .founder-tag,
+.founder-card:focus-within .founder-tag {
+  background: var(--color-ink);
+  color: #fff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -230,5 +288,16 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  /* Keep the colour shift, drop the movement. */
+  .founder-card .founder-photo,
+  .founder-card .founder-name {
+    transition: filter 0.6s ease;
+  }
+  .founder-card:hover .founder-photo,
+  .founder-card:focus-within .founder-photo,
+  .founder-card:hover .founder-name,
+  .founder-card:focus-within .founder-name {
+    transform: none;
   }
 }

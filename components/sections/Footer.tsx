@@ -43,13 +43,15 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-x-14 gap-y-8 sm:grid-cols-3">
               {COLUMNS.map((col) => (
                 <div key={col.head}>
-                  <p className="eyebrow mb-4">{col.head}</p>
-                  <ul className="space-y-2.5">
+                  <p className="eyebrow mb-4 md:mb-4">{col.head}</p>
+                  {/* Rows are touch-sized on mobile and tighten back up on
+                      desktop, where the pointer is precise. */}
+                  <ul className="space-y-0 md:space-y-2.5">
                     {col.links.map(([label, href]) => (
                       <li key={label}>
                         <a
                           href={href}
-                          className="text-[14.5px] text-ink-2 transition-colors hover:text-ink"
+                          className="inline-flex min-h-11 items-center text-[14.5px] text-ink-2 transition-colors hover:text-ink md:min-h-0"
                         >
                           {label}
                         </a>

@@ -36,9 +36,13 @@ export default function Nav() {
       }`}
     >
       <div className="flex items-center justify-between px-5 py-4 md:px-12">
+        {/* Negative margin absorbs the padding, so the hit area grows to a
+            touch-sized 44px without moving the lockup. */}
         <Link
           href="/"
-          className={onDark ? "text-white" : "text-ink"}
+          className={`-m-2 flex min-h-11 items-center p-2 ${
+            onDark ? "text-white" : "text-ink"
+          }`}
           aria-label="Oragonlabs home"
         >
           <Logo />

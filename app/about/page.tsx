@@ -30,7 +30,7 @@ const FOUNDERS: Founder[] = [
   {
     name: "David Azemoh",
     role: "Chief Engineer & AI Researcher",
-    photo: null, // → "/team/david-azemoh.jpg"
+    photo: "/team/david-azemoh.png",
     experience: "8+ years",
     bio: "David has spent eight years architecting distributed systems serving more than 5 million monthly active users, across national infrastructure, regulated finance and public-sector platforms. At the lab he researches how models actually get deployed: inference that holds under real load, systems that keep working offline, and what it takes to run them on hardware an institution already owns. He builds the engineering teams that keep them running.",
     focus: ["AI infrastructure", "Edge deployment"],
@@ -39,7 +39,7 @@ const FOUNDERS: Founder[] = [
   {
     name: "Daniel Adama",
     role: "Chief AI Researcher",
-    photo: null, // → "/team/daniel-adama.jpg"
+    photo: "/team/daniel-adama.png",
     experience: "6+ years",
     bio: "Daniel is a researcher first. His work spans the width of applied AI: computer vision and object detection, optical character recognition, face and gesture recognition, speech-to-text, natural language processing and recommender systems, built end to end from data preparation through deployment and evaluation. The through-line is efficiency, driving deep networks and CNNs down to run inside hardware budgets that would normally rule them out, which is the exact problem this lab exists to solve. He sets the lab's research agenda and the standard it reports to: experiments run to a protocol, results measured on the hardware institutions actually own, and findings published including the ones that did not work.",
     focus: ["Computer vision", "Model efficiency"],
@@ -71,7 +71,7 @@ function Portrait({ name, photo }: { name: string; photo: string | null }) {
           alt={name}
           fill
           sizes="(max-width: 640px) 100vw, 260px"
-          className="object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
+          className="founder-photo object-cover"
         />
       </div>
     );
@@ -189,7 +189,7 @@ export default function AboutPage() {
             <div className="mt-16 grid gap-px bg-dash/40 md:grid-cols-2">
               {FOUNDERS.map((f, i) => (
                 <Reveal key={i} delay={i * 90}>
-                  <article className="flex h-full flex-col gap-7 bg-bone p-8 sm:flex-row md:p-10">
+                  <article className="founder-card flex h-full flex-col gap-7 bg-bone p-8 sm:flex-row md:p-10">
                     <div className="w-full shrink-0 sm:w-[38%]">
                       <Portrait name={f.name} photo={f.photo} />
                     </div>
@@ -197,7 +197,7 @@ export default function AboutPage() {
                       <div className="flex items-start justify-between gap-3">
                         <div>
                           <h3 className="text-[23px] font-semibold tracking-[-0.02em]">
-                            {f.name}
+                            <span className="founder-name">{f.name}</span>
                           </h3>
                           <p className="mt-1 text-[15px] text-ink-2">{f.role}</p>
                         </div>
@@ -205,7 +205,7 @@ export default function AboutPage() {
                           {f.experience}
                         </span>
                       </div>
-                      <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
+                      <p className="founder-bio mt-4 text-[15px] leading-relaxed text-ink-2">
                         {f.bio}
                       </p>
                       <div className="mt-auto pt-6">
@@ -213,7 +213,7 @@ export default function AboutPage() {
                           {f.focus.map((tag, ti) => (
                             <span
                               key={ti}
-                              className="bg-white px-3 py-1.5 text-[12.5px] text-ink-2"
+                              className="founder-tag bg-white px-3 py-1.5 text-[12.5px] text-ink-2"
                             >
                               {tag}
                             </span>
