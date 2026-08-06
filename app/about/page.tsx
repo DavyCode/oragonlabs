@@ -41,7 +41,7 @@ const FOUNDERS: Founder[] = [
     role: "Chief AI Researcher",
     photo: "/team/daniel-adama.png",
     experience: "6+ years",
-    bio: "Daniel is a researcher first. His work spans the width of applied AI: computer vision and object detection, optical character recognition, face and gesture recognition, speech-to-text, natural language processing and recommender systems, built end to end from data preparation through deployment and evaluation. The through-line is efficiency, driving deep networks and CNNs down to run inside hardware budgets that would normally rule them out, which is the exact problem this lab exists to solve. He sets the lab's research agenda and the standard it reports to: experiments run to a protocol, results measured on the hardware institutions actually own, and findings published including the ones that did not work.",
+    bio: "Daniel is a researcher first. His work spans the width of applied AI: computer vision and object detection, optical character recognition, face and gesture recognition, speech-to-text, natural language processing and recommender systems, built end to end from data preparation through deployment and evaluation. The through-line is efficiency, driving deep networks and CNNs down to run inside hardware budgets that would normally rule them out, which is the exact problem this lab exists to solve. He sets the lab's research agenda and the standard it reports to.",
     focus: ["Computer vision", "Model efficiency"],
     linkedin: "https://www.linkedin.com/in/danieladama/",
   },
