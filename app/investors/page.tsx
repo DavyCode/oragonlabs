@@ -53,7 +53,7 @@ const TRACTION = [
   { k: "Pilots in discussion", v: "3" },
   { k: "Institutional partners", v: "2" },
   { k: "Target markets", v: "Government, finance, healthcare, robotics etc." },
-  { k: "Team", v: "ML engineers & AI researchers" },
+  { k: "Team", v: "ML engineers, AI researchers & full-stack developers" },
 ];
 
 export default function InvestorsPage() {
