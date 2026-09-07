@@ -270,6 +270,26 @@ body {
   color: var(--color-ink);
 }
 
+.founder-card .founder-bullet {
+  position: relative;
+}
+
+.founder-card .founder-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 7px;
+  height: 1px;
+  background: var(--color-dash);
+  transition: background 0.5s ease;
+}
+
+.founder-card:hover .founder-bullet::before,
+.founder-card:focus-within .founder-bullet::before {
+  background: var(--color-ink);
+}
+
 .founder-card .founder-tag {
   transition: background 0.4s ease, color 0.4s ease;
 }

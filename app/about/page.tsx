@@ -21,7 +21,7 @@ type Founder = {
   role: string;
   photo: string | null;
   experience: string;
-  bio: string;
+  bio: string | string[];
   focus: string[];
   linkedin?: string;
 };
@@ -32,7 +32,12 @@ const FOUNDERS: Founder[] = [
     role: "Chief Engineer & AI Researcher",
     photo: "/team/david-azemoh.png",
     experience: "8+ years",
-    bio: "David has spent eight years architecting distributed systems serving more than 5 million monthly active users, across national infrastructure, regulated finance and public-sector platforms. At the lab he researches how models actually get deployed: inference that holds under real load, systems that keep working offline, and what it takes to run them on hardware an institution already owns. He builds the engineering teams that keep them running.",
+    bio: [
+      "Eight years architecting distributed systems serving more than 5 million monthly active users, across national infrastructure, regulated finance and public-sector platforms.",
+      "Researches how models actually get deployed, starting with inference that holds under real load.",
+      "Builds systems that keep working offline, and works out what it takes to run them on hardware an institution already owns.",
+      "Builds and leads the engineering teams that keep those systems running.",
+    ],
     focus: ["AI infrastructure", "Edge deployment"],
     linkedin: "https://www.linkedin.com/in/dazemoh",
   },
@@ -41,8 +46,14 @@ const FOUNDERS: Founder[] = [
     role: "Chief AI Researcher",
     photo: "/team/daniel-adama.png",
     experience: "6+ years",
-    bio: "Daniel is a researcher first. His work spans the width of applied AI: computer vision and object detection, optical character recognition, face and gesture recognition, speech-to-text, natural language processing and recommender systems, built end to end from data preparation through deployment and evaluation. The through-line is efficiency, driving deep networks and CNNs down to run inside hardware budgets that would normally rule them out, which is the exact problem this lab exists to solve. He sets the lab's research agenda and the standard it reports to.",
-    focus: ["Computer vision", "Model efficiency"],
+    bio: [
+      "Spearheaded George, an AI auditor built to ISA, IAASB and GAAS.",
+      "Reconciles 220,000+ transactions against the general ledger in under 12 minutes for banks and fintechs, multi-tenant, on statement data that arrives messy and inconsistent.",
+      "Fine-tuned YOLOv8 across 142,000+ images and 14 classes for real-time detection: cameras placed, data annotated, variants benchmarked, model shipped.",
+      "Fine-tuned and deployed an open-source LLM end to end in early 2023, gathering and processing the training data himself.",
+      "Builds for what compute costs: serverless GPUs for the heavy vision jobs, a cheap model for bulk matching with heavier processing held back for ambiguous cases, event-driven workers that scale to zero between runs.",
+    ],
+    focus: ["Applied research", "Production AI at scale"],
     linkedin: "https://www.linkedin.com/in/danieladama/",
   },
 ];
@@ -211,9 +222,19 @@ export default function AboutPage() {
                           {f.experience}
                         </span>
                       </div>
-                      <p className="founder-bio mt-4 text-[15px] leading-relaxed text-ink-2">
-                        {f.bio}
-                      </p>
+                      {Array.isArray(f.bio) ? (
+                        <ul className="founder-bio mt-4 flex flex-col gap-2.5 text-[15px] leading-relaxed text-ink-2">
+                          {f.bio.map((line, bi) => (
+                            <li key={bi} className="founder-bullet pl-4">
+                              {line}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="founder-bio mt-4 text-[15px] leading-relaxed text-ink-2">
+                          {f.bio}
+                        </p>
+                      )}
                       <div className="mt-auto pt-6">
                         <div className="flex flex-wrap gap-2">
                           {f.focus.map((tag, ti) => (
