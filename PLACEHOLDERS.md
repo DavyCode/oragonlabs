@@ -12,33 +12,29 @@ the existing project README.
 
 ---
 
-## A · About page
+## A · About page — ✅ ANSWERED, strip currently hidden
 
-### A1 · Founded year
-**Where:** `app/about/page.tsx:109` — hero meta strip
-**Reads as:** Founded · **[year]**
+All three values are confirmed:
 
-FILL:
+- **A1 Founded** → 2025
+- **A2 Based in** → Lagos, Nigeria
+- **A3 Languages supported** → English, Yoruba, Hausa, Igbo
 
-### A2 · City and country
-**Where:** `app/about/page.tsx:110` and `:147` — hero meta strip, and again in the body
-**Reads as:** Based in · **[city, country]**
-**And:** "We build from **[location]** because proximity isn't just one of our values. It's our address."
-*(One answer covers both. Say if the second should be shorter, e.g. city only.)*
+The hero meta strip that displayed them is **hidden for now** by request. The
+values are preserved in a comment at `app/about/page.tsx`, directly under the
+`lede` prop — restore the strip by passing that array back to `meta`.
+`PageHero` renders nothing when the prop is omitted, so there is no empty
+container left behind.
 
-FILL:
+**A4 Hiring locations** — ✅ RESOLVED without naming a place. The line was
+reworded to "we're looking for research and deployment engineers", so the live
+`[locations]` bracket is gone. Say the word and it becomes "…engineers in
+Lagos" once the location is public.
 
-### A3 · Languages supported
-**Where:** `app/about/page.tsx:111` — hero meta strip
-**Reads as:** Languages supported · **[list]**
+Note: A2's second use ("We build from [location] … it's our address") no longer
+exists in the page; that copy was removed at some earlier point.
 
-FILL:
-
-### A4 · Hiring locations
-**Where:** `app/about/page.tsx:241`
-**Reads as:** "Hiring: we're looking for research and deployment engineers in **[locations]**."
-
-FILL:
+The About page now contains **no placeholder brackets at all**.
 
 ---
 
@@ -92,14 +88,15 @@ whatever goes in here.
 ### C1 · Stage — ✅ DONE
 Pre-seed
 
-### C2 · Raising — ✅ DONE
-$300,000
+### C2 · Raising — ⚠️ CHANGED to match the deck
+**$250,000** (was $300,000). The deck sizes it for 18 months.
 
 ### C3 · Committed — ✅ RESOLVED
 Row removed from the page. Add it back once there's a first cheque.
 
-### C4 · Instrument — ✅ DONE
-SAFE / equity
+### C4 · Instrument — ⚠️ CHANGED to match the deck
+Now reads "Discussed live". The deck deliberately does not state an instrument
+publicly; the site previously did.
 
 ### C5 · Use of funds — four percentages
 **Where:** `app/investors/page.tsx:47-50`
@@ -109,22 +106,19 @@ SAFE / equity
 - Go-to-market — **[%]** for government and enterprise partnerships in [markets]
 - Operations — **[%]** for [runway in months]
 
-✅ DONE — research 20% · deployment engineering 40% · go-to-market 20% ·
-operations 20%
+⚠️ SUPERSEDED by the pre-seed deck, which splits it differently:
+**50% engineering and research · 30% pilot deployments · 20% operations and
+go-to-market.** The deck's split is now live on the page.
 
-### C6 · Runway in months
-**Where:** `app/investors/page.tsx:50` and `:214`
-**Reads as:** "Operations — [%] for **[runway in months]**"
-**And:** data room list — "Financial model and **[runway]** plan"
-
-FILL:
+### C6 · Runway in months — ✅ DONE (from the pre-seed deck)
+18 months. Applied to the round table and the data-room list.
 
 ### C7 · Target markets — ✅ DONE
 Sectors, in all three places: government, finance, healthcare, robotics.
 No geography named anywhere on the page.
 
-Note: robotics is named here but has no programme on `/products` and no band in
-`sections/WhatWeBuild.tsx`. Worth adding one, or dropping it from this list.
+✅ RESOLVED — robotics is dropped. It appears nowhere in the pre-seed deck,
+which commits to three verticals. Removed from both places on the page.
 
 ### C8 · Pilots in discussion — ✅ DONE
 3
@@ -132,43 +126,32 @@ Note: robotics is named here but has no programme on `/products` and no band in
 ### C9 · Institutional partners — ✅ DONE
 2
 
-### C10 · Team — ⚠️ PARTIAL
-Currently reads "ML engineers & AI researchers".
+### C10 · Team — ⚠️ STILL OPEN
+Now reads "ML engineers, AI researchers & full-stack developers".
 
 The other three cells in that row are counts, so a description here reads as an
 answer to a different question. If you want a number, say it and I'll swap.
 
 ---
 
-## D · Homepage spec card (EdgeAI band)
+## D · Homepage spec card (EdgeAI band) — ✅ DONE (from the pre-seed deck)
 
-⚠️ These are benchmark figures. They must come from a measurement you actually
-ran, not an estimate — they're the most technically scrutinised numbers on the
-site. The fourth value ("Data sent off-device · 0 bytes") is already real
-because it's an architectural fact, not a measurement.
+All three placeholders are filled with figures the deck states were measured on
+your own hardware, not estimated.
 
-**If you haven't benchmarked yet, answer `DELETE` to D1 and I'll remove the
-whole card.** An empty proof section is better than an invented one.
+- **D1 Model size** → `0.5B parameters`
+- **D3 Throughput** → `~151 tokens / sec, M4 laptop`
+- **D2 Hardware cost** → row **replaced**. The deck gives no $/unit figure, but
+  gives something stronger: no GPU at all. The slot now reads
+  `Concurrent requests · 16 · one laptop, no GPU`, from the deck's engineering
+  proof slide.
 
-### D1 · Model size
-**Where:** `components/sections/EdgeAI.tsx:24`
-**Reads as:** Model size · **[0.5B]** parameters
+The card's closing line now reads "Every figure was measured on our own
+machines, and nothing is rounded up," echoing the deck's own caveat.
 
-FILL:
-
-### D2 · Hardware cost
-**Where:** `components/sections/EdgeAI.tsx:25`
-**Reads as:** Hardware cost · **[$X]** per unit
-
-FILL:
-
-### D3 · Throughput
-**Where:** `components/sections/EdgeAI.tsx:26`
-**Reads as:** Throughput · **[N]** tokens / sec
-
-FILL:
-
----
+The deck's fuller hardware table (0.5B/151, 1.5B/66, 4B/27, 70B+ "not our
+market", plus the memory-bandwidth reasoning) is **not yet on the site** and is
+a strong candidate for its own section.
 
 ## E · Site-wide
 
@@ -180,26 +163,25 @@ FILL:
 Note: the footer has a comment explaining that this address is one unbreakable
 157px word and affects the layout. A much longer address may need a look.
 
-FILL:
+✅ CONFIRMED by the deck's contact slide — `hello@oragonlabs.com` is correct and
+unchanged. (`david@oragonlabs.com` also exists but is not used on the site.)
 
 ### E2 · Confirm the three industries
 **Where:** `components/sections/WhatWeBuild.tsx`
 **Currently:** Healthcare · Financial services · Government services
 
-Carried over from the positioning brief's example list, never confirmed. Answer
-`CONFIRMED` or give three replacements.
-
-FILL:
+✅ CONFIRMED by the deck. It commits to exactly three verticals — banks,
+hospitals and ministries — which map onto the site's existing Financial
+services · Healthcare · Government services. No change needed.
 
 ### E3 · Labs page holding note
 **Where:** `app/labs/page.tsx:219`
 **Reads as:** "[Field notes and benchmarks are not published yet. This is where
 they will live. See §9 of the positioning brief.]"
 
-This is a note to yourselves, visible to visitors. Answer `DELETE` to remove it,
-`KEEP` to leave it until the first field note ships, or write replacement copy.
-
-FILL:
+✅ DONE — replaced. Its premise ("benchmarks are not published yet") stopped
+being true once the deck's measured figures went onto the homepage. It now
+points readers at those benchmarks instead.
 
 ---
 

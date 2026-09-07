@@ -29,13 +29,14 @@ type Founder = {
 const FOUNDERS: Founder[] = [
   {
     name: "David Azemoh",
-    role: "Chief Engineer & AI Researcher",
+    role: "Founder · Chief Engineer & AI Researcher",
     photo: "/team/david-azemoh.png",
-    experience: "8+ years",
+    experience: "9+ years",
     bio: [
-      "Eight years architecting distributed systems serving more than 5 million monthly active users, across national infrastructure, regulated finance and public-sector platforms.",
-      "Researches how models actually get deployed, starting with inference that holds under real load.",
-      "Builds systems that keep working offline, and works out what it takes to run them on hardware an institution already owns.",
+      "Nine years architecting distributed systems serving more than 5 million monthly active users, across national infrastructure, regulated finance and public-sector platforms.",
+      "Led engineering at Treepz and Thrive Agric, on products driving more than $200M in value.",
+      "Two-time founder with an exit and an NVIDIA Inception founder, who has helped startups raise $56M. Certified ethical hacker.",
+      "Researches how models actually get deployed: inference that holds under real load, systems that keep working offline, and what it takes to run them on hardware an institution already owns.",
       "Builds and leads the engineering teams that keep those systems running.",
     ],
     focus: ["AI infrastructure", "Edge deployment"],
@@ -43,12 +44,12 @@ const FOUNDERS: Founder[] = [
   },
   {
     name: "Daniel Adama",
-    role: "Chief AI Researcher",
+    role: "Founder · Chief AI Researcher",
     photo: "/team/daniel-adama.png",
-    experience: "6+ years",
+    experience: "8+ years",
     bio: [
       "Spearheaded George, an AI auditor built to ISA, IAASB and GAAS.",
-      "Reconciles 220,000+ transactions against the general ledger in under 12 minutes for banks and fintechs, multi-tenant, on statement data that arrives messy and inconsistent.",
+      "Built a multi-tenant AI reconciliation system for banks and fintechs that matches 220,000+ transactions against the general ledger in under 12 minutes, on statement data that arrives messy and inconsistent.",
       "Fine-tuned YOLOv8 across 142,000+ images and 14 classes for real-time detection: cameras placed, data annotated, variants benchmarked, model shipped.",
       "Fine-tuned and deployed an open-source LLM end to end in early 2023, gathering and processing the training data himself.",
       "Builds for what compute costs: serverless GPUs for the heavy vision jobs, a cheap model for bulk matching with heavier processing held back for ambiguous cases, event-driven workers that scale to zero between runs.",
@@ -116,11 +117,16 @@ export default function AboutPage() {
         eyebrow="About us"
         title="An AI research lab, built where the problems are."
         lede="We started with a simple observation: the places with the most to gain from AI are the places it reaches last. Not because the technology can't help, but because it wasn't designed to. So we're designing it differently: private, close, open, and within reach."
-        meta={[
-          { k: "Founded", v: "[year]" },
-          { k: "Based in", v: "[city, country]" },
-          { k: "Languages supported", v: "[list]" },
-        ]}
+        /* Meta strip hidden for now. The values below are confirmed — restore
+           the strip by passing this array back to `meta`. PageHero renders
+           nothing when the prop is omitted.
+
+           meta={[
+             { k: "Founded", v: "2025" },
+             { k: "Based in", v: "Lagos, Nigeria" },
+             { k: "Languages supported", v: "English, Yoruba, Hausa, Igbo" },
+           ]}
+        */
       />
 
       {/* --- Why we exist ------------------------------------------------- */}
@@ -264,9 +270,17 @@ export default function AboutPage() {
             </div>
 
             <Reveal>
+              <p className="mt-12 max-w-[62ch] border-t border-dash/60 pt-8 text-[17px] leading-relaxed text-ink-2">
+                Between them, more than 15 years building full-stack, reliable
+                systems that have served over 200 million users and generated
+                value worth more than $1B.
+              </p>
+            </Reveal>
+
+            <Reveal>
               <p className="mt-10 text-[14px] text-grey">
-                Hiring: we&apos;re looking for research and deployment engineers
-                in [locations].{" "}
+                Hiring: we&apos;re looking for research and deployment
+                engineers.{" "}
                 <a href="mailto:hello@oragonlabs.com" className="text-ink underline">
                   Introduce yourself
                 </a>

@@ -17,13 +17,13 @@ export default function Hero() {
               AI Research Lab
             </p>
             <h1 className="display text-white text-[clamp(38px,5.2vw,66px)]">
-              We research AI. Then we put it to work.
+              AI you own, instead of AI you rent.
             </h1>
             <p className="mt-7 max-w-[56ch] text-[17px] leading-relaxed text-white/70 md:text-[18px]">
-              Oragonlabs is an AI research lab finding real-world applications of
-              AI for everyday businesses, institutions and the problems that
-              matter most to people, and building them so they work at scale,
-              affordably, wherever they&apos;re needed.
+              Oragonlabs builds the infrastructure layer for private and personal
+              AI: private by design, owned rather than rented, and sovereign
+              wherever it runs. Software an institution installs on the machines
+              it already owns, so the data never has to leave.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <a href="#contact" className="btn btn-on-dark">

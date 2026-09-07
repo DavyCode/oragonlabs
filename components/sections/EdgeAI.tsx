@@ -18,12 +18,13 @@ const PROOFS = [
   },
 ];
 
-/* NOTE: these figures are placeholders. Replace with numbers from your own
-   benchmark before publishing; see §9 "Proof points to develop". */
+/* Measured on our own hardware, not estimated. Source: pre-seed deck,
+   "The hardware reality" and "Engineering proof". A person reads about four
+   tokens a second, so 151 tok/s is roughly 35x reading speed. */
 const STATS = [
-  { label: "Model size", value: "[0.5B]", unit: "parameters" },
-  { label: "Hardware cost", value: "[$X]", unit: "per unit" },
-  { label: "Throughput", value: "[N]", unit: "tokens / sec" },
+  { label: "Model size", value: "0.5B", unit: "parameters" },
+  { label: "Throughput", value: "~151", unit: "tokens / sec, M4 laptop" },
+  { label: "Concurrent requests", value: "16", unit: "one laptop, no GPU" },
   { label: "Data sent off-device", value: "0", unit: "bytes" },
 ];
 
@@ -121,7 +122,8 @@ export default function EdgeAI() {
           <Reveal>
             <p className="mt-14 border-t border-white/15 pt-8 text-[16px] italic text-white/50">
               Every pillar above is an engineering choice before it&apos;s a
-              value statement. This is how we make them true.
+              value statement. Every figure was measured on our own machines,
+              and nothing is rounded up.
             </p>
           </Reveal>
         </div>
