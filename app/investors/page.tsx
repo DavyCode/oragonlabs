@@ -15,8 +15,9 @@ export const metadata: Metadata = pageMetadata({
    numbers before publishing. Nothing here is a claim we can stand behind. */
 const RAISE = [
   { k: "Stage", v: "Pre-seed" },
-  { k: "Raising", v: "$300,000" },
-  { k: "Instrument", v: "SAFE / equity" },
+  { k: "Raising", v: "$250,000" },
+  { k: "Runway", v: "18 months" },
+  { k: "Instrument", v: "Discussed live" },
 ];
 
 const THESIS = [
@@ -43,16 +44,15 @@ const THESIS = [
 ];
 
 const USE_OF_FUNDS = [
-  ["Research", "20% for efficient models, on-device inference, local-language work"],
-  ["Deployment engineering", "40% for reference architectures and pilot delivery"],
-  ["Go-to-market", "20% for partnerships across government, finance, healthcare, robotics and beyond"],
-  ["Operations", "20% for [runway in months]"],
+  ["Engineering and research", "50% to publish the package, per-platform engine builds, CI and the OpenAI-compatible endpoint"],
+  ["Pilot deployments", "30% for paid pilots with design partners across our three verticals"],
+  ["Operations and go-to-market", "20% for two engineering hires and one deployment lead, close to the markets we serve"],
 ];
 
 const TRACTION = [
   { k: "Pilots in discussion", v: "3" },
   { k: "Institutional partners", v: "2" },
-  { k: "Target markets", v: "Government, finance, healthcare, robotics etc." },
+  { k: "Target markets", v: "Government, finance, healthcare" },
   { k: "Team", v: "ML engineers, AI researchers & full-stack developers" },
 ];
 
@@ -207,10 +207,10 @@ export default function InvestorsPage() {
                   <p className="eyebrow mb-5">In the data room</p>
                   <ul className="space-y-3.5">
                     {[
-                      "Thesis and market sizing for government, finance, healthcare and robotics",
+                      "Thesis and market sizing for government, finance and healthcare",
                       "Technical roadmap and research agenda",
                       "Product programmes and pilot pipeline",
-                      "Financial model and [runway] plan",
+                      "Financial model and 18-month runway plan",
                       "Founding team and hiring plan",
                       "Data-handling and sovereignty policy",
                     ].map((item) => (

@@ -24,7 +24,7 @@ const INDUSTRIES = [
       ["Deployment", "In-country / private cloud"],
       ["Compliance", "Local data-protection law by design"],
       ["Latency", "In-region, no transcontinental hop"],
-      ["Pricing", "[local currency, per-seat or per-volume]"],
+      ["Pricing", "Flat annual licence, priced to local purchasing power"],
     ],
   },
   {

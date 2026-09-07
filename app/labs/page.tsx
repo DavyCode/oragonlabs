@@ -216,8 +216,13 @@ export default function LabsPage() {
 
             <Reveal>
               <p className="mt-10 text-[14px] text-grey">
-                [Field notes and benchmarks are not published yet. This is where
-                they will live. See §9 of the positioning brief.]
+                First benchmarks are on the{" "}
+                <Link href="/#edge" className="text-ink underline">
+                  homepage
+                </Link>
+                : a 0.5B model at ~151 tokens a second on an M4 laptop, and 16
+                concurrent requests answered on one machine with no GPU. Written
+                field notes follow.
               </p>
             </Reveal>
           </div>
