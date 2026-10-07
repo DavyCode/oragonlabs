@@ -8,7 +8,7 @@ import { Arrow } from "@/components/Icons";
 export const metadata: Metadata = pageMetadata({
   title: "Products",
   description:
-    "The research directions Oragonlabs is building toward: intelligent video systems, assistive technology, identity infrastructure, defence and public safety, clinical support and financial integrity.",
+    "The research directions Oragonlabs is building toward: intelligent video systems, assistive technology, identity infrastructure, defence and public safety, clinical support and financial infrastructure.",
   path: "/products",
 });
 
@@ -93,15 +93,15 @@ const PRODUCTS = [
   {
     n: "06",
     codename: "[codename]",
-    title: "Financial integrity",
+    title: "Financial infrastructure",
     summary:
-      "Fraud detection and credit intelligence that satisfies local data-residency law by construction and is priced against local transaction economics.",
+      "AI infrastructure that satisfies local data-residency law by construction and is priced against local transaction economics.",
     detail:
-      "Financial institutions here are asked to choose between compliance and capability. We are researching in-country deployable models that remove that trade-off, tuned to local fraud patterns rather than imported ones.",
+      "Financial institutions here are asked to choose between compliance and capability. We are researching in-country deployable infrastructure that removes that trade-off, running on hardware institutions already own rather than in a distant cloud.",
     specs: [
       ["Where it runs", "In-country / private cloud"],
       ["Compliance", "Local data-protection law by design"],
-      ["Tuning", "Local fraud and credit patterns"],
+      ["Tuning", "Local hardware and operating conditions"],
       ["Status", "[research direction]"],
     ],
   },
@@ -220,8 +220,8 @@ export default function ProductsPage() {
                 take a position on deployments we will not support.
               </p>
               <p className="mt-6 text-[15px] text-white/40">
-                [Link your published data-handling &amp; deployment policy here
-                once written. §9 of the positioning brief.]
+                [Our data-handling and deployment policy is being finalised and
+                will be published here.]
               </p>
             </Reveal>
           </div>
