@@ -52,7 +52,7 @@ Six research programmes. Each needs a codename and a status.
 | 03 | Identity & civil registration | |
 | 04 | Defence & public safety | |
 | 05 | Clinical decision support | |
-| 06 | Financial integrity | |
+| 06 | Financial infrastructure | |
 
 ### B2 · Status per programme
 **Where:** `app/products/page.tsx` — last row of each spec table
@@ -68,7 +68,7 @@ Suggested vocabulary, so the six read as one scale:
 | 03 | Identity & civil registration | |
 | 04 | Defence & public safety | |
 | 05 | Clinical decision support | |
-| 06 | Financial integrity | |
+| 06 | Financial infrastructure | |
 
 ### B3 · Local languages (assistive technology only)
 **Where:** `app/products/page.tsx:44` — assistive technology spec table
