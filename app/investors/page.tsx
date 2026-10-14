@@ -231,8 +231,6 @@ export default function InvestorsPage() {
               <p className="mt-14 border-t border-dash/50 pt-7 text-[13.5px] leading-relaxed text-grey">
                 This page is provided for information only and is not an offer to
                 sell or a solicitation of an offer to buy securities.
-                [Confirm the wording and what you may publish with counsel.
-                Rules on publicly advertising a raise vary by jurisdiction.]
               </p>
             </Reveal>
           </div>

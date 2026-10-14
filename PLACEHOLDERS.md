@@ -191,6 +191,6 @@ Tracked elsewhere, no bracket to fill:
 
 - **Portraits** — both are in and wired up.
 - **`NEXT_PUBLIC_SITE_URL`** — a Vercel env var, not copy. See the README.
-- **Investor legal disclaimer** — wording exists; it needs counsel, not a value.
+- **Investor legal disclaimer** — the visible `[Confirm the wording… with counsel]` note was removed from the page on 2026-10-14; the disclaimer sentence stays. Counsel review is still advisable.
 - **Data-handling & sovereignty policy** — referenced by the products page
   governance section but not yet written. A document, not a field.
