@@ -8,7 +8,7 @@ import { Arrow } from "@/components/Icons";
 export const metadata: Metadata = pageMetadata({
   title: "Products",
   description:
-    "The research directions Oragonlabs is building toward: intelligent video systems, assistive technology, identity infrastructure, defence and public safety, clinical support and financial infrastructure.",
+    "Voiceit, our live dictation and voice-notes app, and the research directions Oragonlabs is building toward: intelligent video systems, assistive technology, identity infrastructure, defence and public safety, clinical support and financial infrastructure.",
   path: "/products",
 });
 
@@ -112,21 +112,82 @@ export default function ProductsPage() {
     <>
       <PageHero
         eyebrow="Products"
-        title="What we're building toward."
-        lede="Oragonlabs is a research lab, and this is our agenda in the open. Each programme below is an area where we believe sovereign, efficient AI changes what an institution can do, and where we are actively doing the research."
+        title="What we've shipped, and what's next."
+        lede="Oragonlabs is a research lab, and this is our agenda in the open. Voiceit is the first product built on our engine. Each programme after it is an area where we believe sovereign, efficient AI changes what an institution can do, and where we are actively doing the research."
       />
 
-      {/* Honest status banner: this whole page describes intent, not inventory. */}
-      <section className="border-b border-line bg-plate">
+      {/* --- Shipping now -------------------------------------------------
+          The one product people can use today. Copy follows Voiceit's own
+          site; keep the two in step when its features or pricing change. */}
+      <section id="voiceit" className="bg-white">
+        <div className="px-5 py-20 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[1180px]">
+            <Reveal>
+              <div className="mb-8 flex flex-wrap items-center gap-4">
+                <span className="border border-ink px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.5px]">
+                  Live now
+                </span>
+                <span className="eyebrow">Built on the Oragonlabs engine</span>
+              </div>
+
+              <div className="grid gap-12 lg:grid-cols-2">
+                <div>
+                  <h2 className="display text-[clamp(28px,3.6vw,44px)]">
+                    Voiceit. Just say it. We&apos;ll write it.
+                  </h2>
+                  <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-ink">
+                    Our first product: a dictation and voice-notes app. Hold a
+                    shortcut in any app, speak naturally, and clean written text
+                    lands at your cursor.
+                  </p>
+                  <p className="mt-4 max-w-[48ch] text-[15.5px] leading-relaxed text-ink-2">
+                    Keep what matters as notes with automatic titles and full
+                    search. Voiceit runs on the engine we build at
+                    Oragonlabs, and it is where that research meets everyday use.
+                  </p>
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    <a
+                      href="https://voiceit.oragonlabs.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn"
+                    >
+                      Try Voiceit <Arrow />
+                    </a>
+                  </div>
+                </div>
+
+                <dl className="h-fit border border-line">
+                  {[
+                    ["Dictation", "Any app with a text field, no plugins"],
+                    ["Notes", "Automatic titles, full search"],
+                    ["Languages", "Choose yours; teach it your names and terms"],
+                    ["Pricing", "Start for free"],
+                    ["Status", "Live"],
+                  ].map(([label, value]) => (
+                    <div key={label} className="spec-cell">
+                      <dt className="spec-label">{label}:</dt>
+                      <dd className="spec-value">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Honest status banner: everything below describes intent, not inventory. */}
+      <section className="border-y border-line bg-plate">
         <div className="px-5 py-7 md:px-12">
           <div className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-x-4 gap-y-2">
             <span className="border border-ink px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.5px]">
               Please note
             </span>
             <p className="text-[15px] text-ink-2">
-              None of the programmes below are commercially available yet. They
-              are active research directions. We publish them so partners can
-              shape them early.
+              Apart from Voiceit, none of the programmes below are commercially
+              available yet. They are active research directions. We publish
+              them so partners can shape them early.
             </p>
           </div>
         </div>

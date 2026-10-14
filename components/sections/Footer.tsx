@@ -6,6 +6,7 @@ const COLUMNS = [
     links: [
       ["About us", "/about"],
       ["Products", "/products"],
+      ["Voiceit", "https://voiceit.oragonlabs.com/"],
       ["Investors", "/investors"],
     ],
   },
