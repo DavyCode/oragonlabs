@@ -38,22 +38,25 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Floating card, mirroring the reference site's hero news card. */}
+          {/* Floating card, mirroring the reference site's hero news card.
+              Announces the first shipped product; it opens on Voiceit's own site. */}
           <a
-            href="#edge"
+            href="https://voiceit.oragonlabs.com/"
+            target="_blank"
+            rel="noreferrer"
             className="group w-full max-w-[350px] shrink-0 rounded-2xl bg-white p-3 shadow-xl transition-transform hover:-translate-y-1"
           >
             <div className="flex items-center gap-3.5">
               <div className="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-near-black">
                 <span className="font-mono text-[10px] leading-tight text-white/85">
-                  ON<br />DEVICE
+                  VOICE<br />IT
                 </span>
               </div>
               <div className="min-w-0 flex-1">
-                <p className="eyebrow mb-1 text-[11px]">Field note</p>
+                <p className="eyebrow mb-1 text-[11px]">Now live · Voiceit</p>
                 <p className="text-[15px] font-semibold leading-snug">
-                  A language model that runs with no server, no internet, and no
-                  data leaving the chip.
+                  Our first product: dictation and voice notes, built on the
+                  Oragonlabs engine.
                 </p>
               </div>
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-black text-white">
