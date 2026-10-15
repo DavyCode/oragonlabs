@@ -19,6 +19,14 @@ reply = client.chat.generate(
 )
 print(reply.choices[0].message.content)`;
 
+export const INSTALL_STEPS = `pip install oragon        # the engine is inside the package
+oragon doctor             # check what this machine can run
+oragon try                # download a small model and chat with it`;
+
+/* Real output of HELLO, captured by running it against the published
+   package. Re-run it rather than editing this by hand. */
+export const HELLO_OUTPUT = `One primary color is red.`;
+
 /** The four promises the README leads with, condensed for cards. */
 export const SDK_POINTS = [
   {
@@ -43,68 +51,22 @@ export const SDK_POINTS = [
   },
 ];
 
-export type Snippet = {
-  id: string;
-  eyebrow: string;
-  title: string;
-  body: string;
-  lang: "python" | "shell";
-  code: string;
-};
 
-export const SNIPPETS: Snippet[] = [
-  {
-    id: "structured",
-    eyebrow: "Structured data",
-    title: "Data that matches your schema, or an error.",
-    body: "Pass a JSON schema. It is enforced while the model writes, so output that would break it cannot be produced. You get valid data or an ExtractionError, nothing in between.",
-    lang: "python",
-    code: `rows = client.chat.generate(
-    model=LocalModel.QWEN2_5_1_5B,
-    messages=[user(invoice_text)],
-    response_schema={"type": "array", "items": {
-        "type": "object",
-        "required": ["date", "amount"],
-        "properties": {"date": {"type": "string"}, "amount": {"type": "number"}},
-    }},
-)`,
-  },
-  {
-    id: "documents",
-    eyebrow: "Your documents",
-    title: "Cited answers, and a refusal when the documents don't say.",
-    body: "Search by words and by meaning, entirely on your machine. The embedding model runs inside the same engine, so there is no second service. A citation the model made up is flagged, not quietly fixed.",
-    lang: "python",
-    code: `from oragon.rag import DocumentQA, EngineRetriever, ingest
-
-retriever = EngineRetriever()
-ingest(["handbook.md", "policy.pdf"], retriever)
-
-qa = DocumentQA(client, model=LocalModel.QWEN2_5_1_5B, retriever=retriever)
-result = qa.ask("How many vacation days do new hires get?")
-
-if result.refused:
-    print("The documents don't say.")
-else:
-    print(result.text)               # with citations like [1]`,
-  },
-  {
-    id: "serve",
-    eyebrow: "OpenAI-compatible API",
-    title: "Serve it over HTTP. Any OpenAI client can join in.",
-    body: "oragon serve runs an OpenAI-compatible API with a browser playground and a live console. Binding to a network address without a token is refused at startup.",
-    lang: "python",
-    code: `# $ oragon serve --expose
-from openai import OpenAI
-
-client = OpenAI(base_url="http://127.0.0.1:8080/v1", api_key=TOKEN)
-client.chat.completions.create(model="qwen2.5-1.5b", messages=[...])`,
-  },
-];
-
-/* Covered on the page as text only, to keep it to a few code samples.
+/* Covered on the page as text only, so the only code samples are install and hello-world.
    Full examples for each are in the PyPI README. */
 export const MORE_FEATURES = [
+  {
+    title: "Structured data",
+    body: "Pass a JSON schema and get data that matches it, or an ExtractionError. The schema is enforced while the model writes.",
+  },
+  {
+    title: "Your documents",
+    body: "Ask questions about your own files and get cited answers, or a refusal when the documents don't say. Searched entirely on your machine.",
+  },
+  {
+    title: "OpenAI-compatible API",
+    body: "oragon serve puts an OpenAI-compatible API in front of the model, with a browser playground. Any OpenAI client, in any language, can use it.",
+  },
   {
     title: "Decisions",
     body: "Offer a set of labels and get one of them back, or an honest \u201cno match\u201d. Never stretched to fit.",
@@ -112,10 +74,6 @@ export const MORE_FEATURES = [
   {
     title: "Tool use",
     body: "Hand it plain Python functions and act() runs the whole loop, retrying when a tool fails.",
-  },
-  {
-    title: "Built for load",
-    body: "Requests run side by side, wait in a bounded queue when busy, and are retried for you when turned away.",
   },
   {
     title: "Typed errors",
