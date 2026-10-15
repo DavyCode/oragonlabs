@@ -19,12 +19,6 @@ reply = client.chat.generate(
 )
 print(reply.choices[0].message.content)`;
 
-export const CLI = `oragon try                # download a small model and chat with it
-oragon try extract        # turn text into validated JSON
-oragon try rag            # ask questions about your documents
-oragon serve              # run an OpenAI-compatible API, with a browser playground
-oragon doctor             # check what this machine can run`;
-
 /** The four promises the README leads with, condensed for cards. */
 export const SDK_POINTS = [
   {
@@ -76,38 +70,6 @@ export const SNIPPETS: Snippet[] = [
 )`,
   },
   {
-    id: "decisions",
-    eyebrow: "Decisions",
-    title: "One of your labels, or an honest “no match”.",
-    body: "Offer a set of choices and you get one of them back, or matched=False. The answer is never stretched to fit the closest-looking label. Turn on thinking for harder calls and keep the reasoning for your audit log.",
-    lang: "python",
-    code: `decision = client.chat.generate(
-    model=LocalModel.QWEN2_5_1_5B,
-    messages=[user("Meeting started 9:45, ran 100 min. Over before noon?")],
-    response_format={"type": "choice", "choices": ["YES", "NO"]},
-    settings=Settings(temperature=0.0, thinking=True),
-)
-print(decision.reason)   # the reasoning, for your audit log
-print(decision.choice)   # the verdict, for your code`,
-  },
-  {
-    id: "tools",
-    eyebrow: "Tools",
-    title: "Plain Python functions, the whole loop run for you.",
-    body: "act() reads each tool's description from its signature, type hints and docstring. If a tool fails the model sees the error and tries again, and several calls in one round run in parallel.",
-    lang: "python",
-    code: `def get_weather(city: str) -> dict:
-    """Current weather for a city."""
-    return {"city": city, "temp_c": 22}
-
-reply = client.chat.act(
-    model=LocalModel.QWEN2_5_1_5B,
-    messages="What's the weather in Lagos?",
-    tools=[get_weather],
-)
-print(reply.choices[0].message.content)`,
-  },
-  {
     id: "documents",
     eyebrow: "Your documents",
     title: "Cited answers, and a refusal when the documents don't say.",
@@ -138,36 +100,26 @@ from openai import OpenAI
 client = OpenAI(base_url="http://127.0.0.1:8080/v1", api_key=TOKEN)
 client.chat.completions.create(model="qwen2.5-1.5b", messages=[...])`,
   },
-  {
-    id: "concurrency",
-    eyebrow: "Under load",
-    title: "Built to serve traffic, not one chat window.",
-    body: "Lanes generate side by side and are batched into the same passes over the model. When every lane is busy, requests wait in a bounded queue. A request turned away is never half-done, so retrying is always safe.",
-    lang: "python",
-    code: `client = Oragon(
-    engine=Engine.EMBEDDED,
-    model=LocalModel.QWEN2_5_1_5B,
-    slots=4,             # lanes: 1-4 free; more than 4 needs a paid plan
-    max_queue=512,       # how many may wait for a lane
-    max_queue_wait=10,   # seconds a caller will wait
-)
+];
 
-client.stats()   # lanes busy, requests waiting, cache reuse
-client.ping()    # health check; answers even when busy`,
+/* Covered on the page as text only, to keep it to a few code samples.
+   Full examples for each are in the PyPI README. */
+export const MORE_FEATURES = [
+  {
+    title: "Decisions",
+    body: "Offer a set of labels and get one of them back, or an honest \u201cno match\u201d. Never stretched to fit.",
   },
   {
-    id: "errors",
-    eyebrow: "Errors",
-    title: "Typed exceptions that say whether to retry.",
-    body: "Every error shares one base class, ApiError. A model too big for the machine is caught before it loads. A conversation too long is raised before anything is generated, never silently cut.",
-    lang: "python",
-    code: `from oragon import (
-    ApiError, ContextOverflowError, EngineBusyError, EngineDiedError,
-    EngineTimeoutError, ExtractionError, InsufficientMemoryError,
-)
-
-# Too long for the model? Drop the oldest turns, keep the system prompt.
-client.chat.generate(model=..., messages=history, overflow="slide")`,
+    title: "Tool use",
+    body: "Hand it plain Python functions and act() runs the whole loop, retrying when a tool fails.",
+  },
+  {
+    title: "Built for load",
+    body: "Requests run side by side, wait in a bounded queue when busy, and are retried for you when turned away.",
+  },
+  {
+    title: "Typed errors",
+    body: "Every error says whether a retry is safe. Too little memory or too long a prompt is caught before any work starts.",
   },
 ];
 

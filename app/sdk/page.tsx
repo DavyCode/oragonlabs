@@ -6,13 +6,13 @@ import CodeBlock, { InstallLine } from "@/components/CodeBlock";
 import Contact from "@/components/sections/Contact";
 import { Arrow } from "@/components/Icons";
 import {
-  CLI,
   HELLO,
   INSTALL,
   PLATFORMS,
   PYPI_URL,
   SDK_POINTS,
   SDK_STATS,
+  MORE_FEATURES,
   SNIPPETS,
 } from "@/lib/sdk";
 
@@ -71,9 +71,8 @@ export default function SdkPage() {
                 </div>
               </Reveal>
 
-              <Reveal delay={80} className="min-w-0 space-y-4">
+              <Reveal delay={80} className="min-w-0">
                 <CodeBlock code={HELLO} label="hello.py" />
-                <CodeBlock code={CLI} lang="shell" label="Quick start" />
               </Reveal>
             </div>
           </div>
@@ -155,7 +154,35 @@ export default function SdkPage() {
             </div>
           </div>
         ))}
-        <div className="pb-14" />
+        <div className="px-5 pb-20 pt-4 md:px-12 md:pb-24">
+          <div className="mx-auto max-w-[1180px]">
+            <Reveal>
+              <div className="rule-dashed pt-8">
+                <p className="eyebrow mb-8">Also in the box</p>
+                <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+                  {MORE_FEATURES.map((f) => (
+                    <div key={f.title} className="bg-white p-7">
+                      <h3 className="text-[17px] font-semibold tracking-[-0.015em]">
+                        {f.title}
+                      </h3>
+                      <p className="mt-3 text-[14.5px] leading-relaxed text-ink-2">
+                        {f.body}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <a
+                  href={PYPI_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-arrow mt-8"
+                >
+                  Code for every feature on PyPI <Arrow />
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </section>
 
       {/* --- Measured --------------------------------------------------
