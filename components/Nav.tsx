@@ -8,6 +8,7 @@ import { Logo } from "./Brand";
 const LINKS = [
   { label: "Labs", href: "/labs" },
   { label: "Products", href: "/products" },
+  { label: "SDK", href: "/sdk" },
   { label: "About", href: "/about" },
   { label: "Investors", href: "/investors" },
 ];

@@ -4,11 +4,14 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Contact from "@/components/sections/Contact";
 import { Arrow } from "@/components/Icons";
+import Link from "next/link";
+import { InstallLine } from "@/components/CodeBlock";
+import { INSTALL, PYPI_URL } from "@/lib/sdk";
 
 export const metadata: Metadata = pageMetadata({
   title: "Products",
   description:
-    "Voiceit, our live dictation and voice-notes app, and the research directions Oragonlabs is building toward: intelligent video systems, assistive technology, identity infrastructure, defence and public safety, clinical support and financial infrastructure.",
+    "Voiceit, our live dictation and voice-notes app; the Oragon SDK for running AI models inside your own software; and the research directions Oragonlabs is building toward: intelligent video systems, assistive technology, identity infrastructure, defence and public safety, clinical support and financial infrastructure.",
   path: "/products",
 });
 
@@ -113,7 +116,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Products"
         title="What we've shipped, and what's next."
-        lede="Oragonlabs is a research lab, and this is our agenda in the open. Voiceit is the first product built on our engine. Each programme after it is an area where we believe sovereign, efficient AI changes what an institution can do, and where we are actively doing the research."
+        lede="Oragonlabs is a research lab, and this is our agenda in the open. Voiceit is the first product built on our engine, and the Oragon SDK puts that engine in developers' hands. Each programme after it is an area where we believe sovereign, efficient AI changes what an institution can do, and where we are actively doing the research."
       />
 
       {/* --- Shipping now -------------------------------------------------
@@ -177,6 +180,67 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* --- Oragon SDK ------------------------------------------------
+          The engine itself, on PyPI. Full detail lives on /sdk. */}
+      <section id="sdk" className="border-t border-line bg-white">
+        <div className="px-5 py-20 md:px-12 md:py-24">
+          <div className="mx-auto max-w-[1180px]">
+            <Reveal>
+              <div className="mb-8 flex flex-wrap items-center gap-4">
+                <span className="border border-ink px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.5px]">
+                  Beta · On PyPI
+                </span>
+                <span className="eyebrow">For developers</span>
+              </div>
+
+              <div className="grid gap-12 lg:grid-cols-2">
+                <div className="min-w-0">
+                  <h2 className="display text-[clamp(28px,3.6vw,44px)]">
+                    Oragon SDK. Run AI models inside your own software.
+                  </h2>
+                  <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-ink">
+                    The engine behind Voiceit, as a Python package. On a laptop,
+                    a server or a datacenter, CPU or GPU, with your data never
+                    leaving the machine.
+                  </p>
+                  <p className="mt-4 max-w-[48ch] text-[15.5px] leading-relaxed text-ink-2">
+                    Validated structured output, honest decisions, tool use,
+                    cited answers over your documents and an OpenAI-compatible
+                    API, with typed errors that say whether to retry.
+                  </p>
+                  <div className="mt-8">
+                    <InstallLine command={INSTALL} />
+                  </div>
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <a href={PYPI_URL} target="_blank" rel="noreferrer" className="btn">
+                      View on PyPI <Arrow />
+                    </a>
+                    <Link href="/sdk" className="btn btn-ghost">
+                      See code examples <Arrow />
+                    </Link>
+                  </div>
+                </div>
+
+                <dl className="h-fit border border-line">
+                  {[
+                    ["Install", "pip install oragon. No signup, no API key"],
+                    ["Runs on", "macOS (Apple silicon), Linux x86-64 and arm64, CPU or GPU"],
+                    ["Language", "Python 3.9 to 3.13; any OpenAI client over HTTP"],
+                    ["Pricing", "Free up to 4 concurrent requests, commercial use included"],
+                    ["Status", "Beta"],
+                  ].map(([label, value]) => (
+                    <div key={label} className="spec-cell">
+                      <dt className="spec-label">{label}:</dt>
+                      <dd className="spec-value">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Honest status banner: everything below describes intent, not inventory. */}
       <section className="border-y border-line bg-plate">
         <div className="px-5 py-7 md:px-12">
@@ -185,7 +249,7 @@ export default function ProductsPage() {
               Please note
             </span>
             <p className="text-[15px] text-ink-2">
-              Apart from Voiceit, none of the programmes below are commercially
+              Apart from Voiceit and the Oragon SDK, none of the programmes below are commercially
               available yet. They are active research directions. We publish
               them so partners can shape them early.
             </p>

@@ -15,6 +15,8 @@ const COLUMNS = [
     links: [
       ["Home", "/"],
       ["Labs", "/labs"],
+      ["Oragon SDK", "/sdk"],
+      ["Oragon on PyPI", "https://pypi.org/project/oragon/"],
     ],
   },
   {
