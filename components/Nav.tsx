@@ -10,7 +10,8 @@ const LINKS = [
   { label: "Products", href: "/products" },
   { label: "SDK", href: "/sdk" },
   { label: "About", href: "/about" },
-  { label: "Investors", href: "/investors" },
+  // Investors is hidden for now; restore this link with the page.
+  // { label: "Investors", href: "/investors" },
 ];
 
 export default function Nav() {

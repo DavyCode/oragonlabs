@@ -65,5 +65,5 @@ export const ROUTES = [
   { path: "/products", priority: 0.8 },
   { path: "/sdk", priority: 0.8 },
   { path: "/about", priority: 0.7 },
-  { path: "/investors", priority: 0.6 },
+  // Hidden for now, with the page: { path: "/investors", priority: 0.6 },
 ] as const;
