@@ -6,21 +6,25 @@ import EdgeAI from "@/components/sections/EdgeAI";
 import SDK from "@/components/sections/SDK";
 import WhatWeBuild from "@/components/sections/WhatWeBuild";
 import Audiences from "@/components/sections/Audiences";
+import InUse from "@/components/sections/InUse";
+import Azure from "@/components/sections/Azure";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      {/* White here, not bone: Problem is the bone band, and two adjacent
-          bone sections would flatten the section rhythm. */}
-      <Mission tone="white" />
+      {/* Mission stays bone and In use goes white, so the bands alternate
+          down to Problem, which is bone. */}
+      <Mission />
+      <InUse />
       <Problem />
       <Pillars />
       <EdgeAI />
       <SDK />
       <WhatWeBuild />
       <Audiences />
+      <Azure />
       <Contact />
     </>
   );
