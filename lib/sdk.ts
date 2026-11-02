@@ -19,11 +19,13 @@ reply = client.chat.generate(
 )
 print(reply.choices[0].message.content)`;
 
-export const CLI = `oragon try                # download a small model and chat with it
-oragon try extract        # turn text into validated JSON
-oragon try rag            # ask questions about your documents
-oragon serve              # run an OpenAI-compatible API, with a browser playground
-oragon doctor             # check what this machine can run`;
+export const INSTALL_STEPS = `pip install oragon        # the engine is inside the package
+oragon doctor             # check what this machine can run
+oragon try                # download a small model and chat with it`;
+
+/* Real output of HELLO, captured by running it against the published
+   package. Re-run it rather than editing this by hand. */
+export const HELLO_OUTPUT = `One primary color is red.`;
 
 /** The four promises the README leads with, condensed for cards. */
 export const SDK_POINTS = [
@@ -49,125 +51,33 @@ export const SDK_POINTS = [
   },
 ];
 
-export type Snippet = {
-  id: string;
-  eyebrow: string;
-  title: string;
-  body: string;
-  lang: "python" | "shell";
-  code: string;
-};
 
-export const SNIPPETS: Snippet[] = [
+/* Covered on the page as text only, so the only code samples are install and hello-world.
+   Full examples for each are in the PyPI README. */
+export const MORE_FEATURES = [
   {
-    id: "structured",
-    eyebrow: "Structured data",
-    title: "Data that matches your schema, or an error.",
-    body: "Pass a JSON schema. It is enforced while the model writes, so output that would break it cannot be produced. You get valid data or an ExtractionError, nothing in between.",
-    lang: "python",
-    code: `rows = client.chat.generate(
-    model=LocalModel.QWEN2_5_1_5B,
-    messages=[user(invoice_text)],
-    response_schema={"type": "array", "items": {
-        "type": "object",
-        "required": ["date", "amount"],
-        "properties": {"date": {"type": "string"}, "amount": {"type": "number"}},
-    }},
-)`,
+    title: "Structured data",
+    body: "Pass a JSON schema and get data that matches it, or an ExtractionError. The schema is enforced while the model writes.",
   },
   {
-    id: "decisions",
-    eyebrow: "Decisions",
-    title: "One of your labels, or an honest “no match”.",
-    body: "Offer a set of choices and you get one of them back, or matched=False. The answer is never stretched to fit the closest-looking label. Turn on thinking for harder calls and keep the reasoning for your audit log.",
-    lang: "python",
-    code: `decision = client.chat.generate(
-    model=LocalModel.QWEN2_5_1_5B,
-    messages=[user("Meeting started 9:45, ran 100 min. Over before noon?")],
-    response_format={"type": "choice", "choices": ["YES", "NO"]},
-    settings=Settings(temperature=0.0, thinking=True),
-)
-print(decision.reason)   # the reasoning, for your audit log
-print(decision.choice)   # the verdict, for your code`,
+    title: "Your documents",
+    body: "Ask questions about your own files and get cited answers, or a refusal when the documents don't say. Searched entirely on your machine.",
   },
   {
-    id: "tools",
-    eyebrow: "Tools",
-    title: "Plain Python functions, the whole loop run for you.",
-    body: "act() reads each tool's description from its signature, type hints and docstring. If a tool fails the model sees the error and tries again, and several calls in one round run in parallel.",
-    lang: "python",
-    code: `def get_weather(city: str) -> dict:
-    """Current weather for a city."""
-    return {"city": city, "temp_c": 22}
-
-reply = client.chat.act(
-    model=LocalModel.QWEN2_5_1_5B,
-    messages="What's the weather in Lagos?",
-    tools=[get_weather],
-)
-print(reply.choices[0].message.content)`,
+    title: "OpenAI-compatible API",
+    body: "oragon serve puts an OpenAI-compatible API in front of the model, with a browser playground. Any OpenAI client, in any language, can use it.",
   },
   {
-    id: "documents",
-    eyebrow: "Your documents",
-    title: "Cited answers, and a refusal when the documents don't say.",
-    body: "Search by words and by meaning, entirely on your machine. The embedding model runs inside the same engine, so there is no second service. A citation the model made up is flagged, not quietly fixed.",
-    lang: "python",
-    code: `from oragon.rag import DocumentQA, EngineRetriever, ingest
-
-retriever = EngineRetriever()
-ingest(["handbook.md", "policy.pdf"], retriever)
-
-qa = DocumentQA(client, model=LocalModel.QWEN2_5_1_5B, retriever=retriever)
-result = qa.ask("How many vacation days do new hires get?")
-
-if result.refused:
-    print("The documents don't say.")
-else:
-    print(result.text)               # with citations like [1]`,
+    title: "Decisions",
+    body: "Offer a set of labels and get one of them back, or an honest \u201cno match\u201d. Never stretched to fit.",
   },
   {
-    id: "serve",
-    eyebrow: "OpenAI-compatible API",
-    title: "Serve it over HTTP. Any OpenAI client can join in.",
-    body: "oragon serve runs an OpenAI-compatible API with a browser playground and a live console. Binding to a network address without a token is refused at startup.",
-    lang: "python",
-    code: `# $ oragon serve --expose
-from openai import OpenAI
-
-client = OpenAI(base_url="http://127.0.0.1:8080/v1", api_key=TOKEN)
-client.chat.completions.create(model="qwen2.5-1.5b", messages=[...])`,
+    title: "Tool use",
+    body: "Hand it plain Python functions and act() runs the whole loop, retrying when a tool fails.",
   },
   {
-    id: "concurrency",
-    eyebrow: "Under load",
-    title: "Built to serve traffic, not one chat window.",
-    body: "Lanes generate side by side and are batched into the same passes over the model. When every lane is busy, requests wait in a bounded queue. A request turned away is never half-done, so retrying is always safe.",
-    lang: "python",
-    code: `client = Oragon(
-    engine=Engine.EMBEDDED,
-    model=LocalModel.QWEN2_5_1_5B,
-    slots=4,             # lanes: 1-4 free; more than 4 needs a paid plan
-    max_queue=512,       # how many may wait for a lane
-    max_queue_wait=10,   # seconds a caller will wait
-)
-
-client.stats()   # lanes busy, requests waiting, cache reuse
-client.ping()    # health check; answers even when busy`,
-  },
-  {
-    id: "errors",
-    eyebrow: "Errors",
-    title: "Typed exceptions that say whether to retry.",
-    body: "Every error shares one base class, ApiError. A model too big for the machine is caught before it loads. A conversation too long is raised before anything is generated, never silently cut.",
-    lang: "python",
-    code: `from oragon import (
-    ApiError, ContextOverflowError, EngineBusyError, EngineDiedError,
-    EngineTimeoutError, ExtractionError, InsufficientMemoryError,
-)
-
-# Too long for the model? Drop the oldest turns, keep the system prompt.
-client.chat.generate(model=..., messages=history, overflow="slide")`,
+    title: "Typed errors",
+    body: "Every error says whether a retry is safe. Too little memory or too long a prompt is caught before any work starts.",
   },
 ];
 

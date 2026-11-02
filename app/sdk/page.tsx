@@ -6,14 +6,15 @@ import CodeBlock, { InstallLine } from "@/components/CodeBlock";
 import Contact from "@/components/sections/Contact";
 import { Arrow } from "@/components/Icons";
 import {
-  CLI,
   HELLO,
+  HELLO_OUTPUT,
   INSTALL,
+  INSTALL_STEPS,
   PLATFORMS,
   PYPI_URL,
   SDK_POINTS,
   SDK_STATS,
-  SNIPPETS,
+  MORE_FEATURES,
 } from "@/lib/sdk";
 
 export const metadata: Metadata = pageMetadata({
@@ -66,14 +67,18 @@ export default function SdkPage() {
                     View on PyPI <Arrow />
                   </a>
                   <a href="#examples" className="btn btn-ghost">
-                    See examples <Arrow />
+                    What else it does <Arrow />
                   </a>
                 </div>
               </Reveal>
 
               <Reveal delay={80} className="min-w-0 space-y-4">
-                <CodeBlock code={HELLO} label="hello.py" />
-                <CodeBlock code={CLI} lang="shell" label="Quick start" />
+                <CodeBlock code={INSTALL_STEPS} lang="shell" label="1 · Install" />
+                <CodeBlock
+                  code={HELLO}
+                  label="2 · hello.py"
+                  output={HELLO_OUTPUT}
+                />
               </Reveal>
             </div>
           </div>
@@ -122,40 +127,40 @@ export default function SdkPage() {
               <p className="mt-6 max-w-[62ch] text-[17px] leading-relaxed text-ink-2">
                 Three engines share one API (embedded, shared and hosted), so
                 where the model runs is a deployment choice, not a rewrite.
-                Each example below assumes the client from the quick start.
               </p>
             </Reveal>
           </div>
         </div>
 
-        {SNIPPETS.map((s, i) => (
-          <div key={s.id} id={s.id} className="px-5 py-12 md:px-12 md:py-14">
-            <div className="mx-auto max-w-[1180px]">
-              <Reveal>
-                <div className="rule-dashed pt-8">
-                  <div className="mb-8 flex flex-wrap items-center gap-4">
-                    <span className="font-mono text-[13px] text-grey">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="eyebrow">{s.eyebrow}</span>
-                  </div>
-                  <div className="grid gap-10 lg:grid-cols-[5fr_7fr]">
-                    <div className="min-w-0">
-                      <h3 className="display text-[clamp(22px,2.4vw,30px)]">
-                        {s.title}
+        <div className="px-5 pb-20 pt-4 md:px-12 md:pb-24">
+          <div className="mx-auto max-w-[1180px]">
+            <Reveal>
+              <div className="rule-dashed pt-8">
+                <p className="eyebrow mb-8">Also in the box</p>
+                <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+                  {MORE_FEATURES.map((f) => (
+                    <div key={f.title} className="bg-white p-7">
+                      <h3 className="text-[17px] font-semibold tracking-[-0.015em]">
+                        {f.title}
                       </h3>
-                      <p className="mt-5 max-w-[46ch] text-[16px] leading-relaxed text-ink-2">
-                        {s.body}
+                      <p className="mt-3 text-[14.5px] leading-relaxed text-ink-2">
+                        {f.body}
                       </p>
                     </div>
-                    <CodeBlock code={s.code} lang={s.lang} />
-                  </div>
+                  ))}
                 </div>
-              </Reveal>
-            </div>
+                <a
+                  href={PYPI_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-arrow mt-8"
+                >
+                  Code for every feature on PyPI <Arrow />
+                </a>
+              </div>
+            </Reveal>
           </div>
-        ))}
-        <div className="pb-14" />
+        </div>
       </section>
 
       {/* --- Measured --------------------------------------------------

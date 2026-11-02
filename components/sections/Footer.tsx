@@ -7,7 +7,7 @@ const COLUMNS = [
       ["About us", "/about"],
       ["Products", "/products"],
       ["Voiceit", "https://voiceit.oragonlabs.com/"],
-      ["Investors", "/investors"],
+      // Hidden for now, with the page: ["Investors", "/investors"],
     ],
   },
   {

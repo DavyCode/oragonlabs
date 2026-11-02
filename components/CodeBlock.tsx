@@ -53,11 +53,14 @@ export default function CodeBlock({
   code,
   lang = "python",
   label,
+  output,
   className = "",
 }: {
   code: string;
   lang?: "python" | "shell";
   label?: string;
+  /** What running the code prints, shown under it and left out of the copy. */
+  output?: string;
   className?: string;
 }) {
   const [copied, setCopied] = useState(false);
@@ -93,6 +96,16 @@ export default function CodeBlock({
       <pre className="overflow-x-auto px-5 py-5 font-mono text-[13px] leading-[1.7] text-white/80">
         <code>{highlight(code, lang)}</code>
       </pre>
+      {output && (
+        <div className="border-t border-white/15">
+          <p className="px-5 pt-4 font-mono text-[11px] uppercase tracking-[1px] text-white/40">
+            Output
+          </p>
+          <pre className="overflow-x-auto px-5 pb-5 pt-2 font-mono text-[13px] leading-[1.7] text-[#a9a7ff]">
+            {output}
+          </pre>
+        </div>
+      )}
     </div>
   );
 }

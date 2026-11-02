@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -56,7 +57,13 @@ const TRACTION = [
   { k: "Team", v: "ML engineers, AI researchers & full-stack developers" },
 ];
 
+/* Hidden for now: the page 404s and is out of the nav, footer and sitemap.
+   Delete this flag (and restore those three links) to bring it back. */
+const HIDDEN = true;
+
 export default function InvestorsPage() {
+  if (HIDDEN) notFound();
+
   return (
     <>
       <PageHero

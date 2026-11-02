@@ -2,7 +2,7 @@ import Link from "next/link";
 import Reveal from "../Reveal";
 import { Arrow } from "../Icons";
 import CodeBlock, { InstallLine } from "../CodeBlock";
-import { HELLO, INSTALL, PYPI_URL, SDK_POINTS } from "@/lib/sdk";
+import { HELLO, HELLO_OUTPUT, INSTALL, PYPI_URL, SDK_POINTS } from "@/lib/sdk";
 
 /* Home-page highlight for the Oragon SDK. Sits straight after EdgeAI, which
    makes the efficiency argument; this is where a developer can act on it.
@@ -57,7 +57,7 @@ export default function SDK() {
             </Reveal>
 
             <Reveal delay={80} className="min-w-0">
-              <CodeBlock code={HELLO} label="hello.py" />
+              <CodeBlock code={HELLO} label="hello.py" output={HELLO_OUTPUT} />
             </Reveal>
           </div>
 
