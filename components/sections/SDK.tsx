@@ -33,8 +33,7 @@ export default function SDK() {
               </p>
               <p className="mt-4 max-w-[50ch] text-[15.5px] leading-relaxed text-ink-2">
                 One command is the whole install. The engine is inside the
-                package: no compiler, no separate download, no signup, no API
-                key.
+                package: no compiler, no separate download, no API key.
               </p>
 
               <div className="mt-8">
