@@ -64,7 +64,7 @@ export default function SdkPage() {
                     rel="noreferrer"
                     className="btn"
                   >
-                    Sign up for a paid plan <Arrow />
+                    Sign up for a license key <Arrow />
                   </a>
                   <a
                     href={PYPI_URL}
