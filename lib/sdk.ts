@@ -4,6 +4,7 @@
    is hardcoded on purpose: PyPI is the source of truth for that. */
 
 export const PYPI_URL = "https://pypi.org/project/oragon/";
+export const SIGNUP_URL = "https://sdk-app.oragonlabs.com/";
 export const INSTALL = "pip install oragon";
 
 export const HELLO = `from oragon import Oragon, Engine, LocalModel, user
@@ -47,7 +48,7 @@ export const SDK_POINTS = [
   {
     k: "04",
     title: "Your data stays yours",
-    body: "The engine ships inside the package. No signup, no API key, no telemetry. Prompts and answers never leave the machine.",
+    body: "The engine ships inside the package. No API key, no telemetry. Prompts and answers never leave the machine.",
   },
 ];
 

@@ -223,7 +223,7 @@ export default function ProductsPage() {
 
                 <dl className="h-fit border border-line">
                   {[
-                    ["Install", "pip install oragon. No signup, no API key"],
+                    ["Install", "pip install oragon. No API key"],
                     ["Runs on", "macOS (Apple silicon), Linux x86-64 and arm64, CPU or GPU"],
                     ["Language", "Python 3.9 to 3.13; any OpenAI client over HTTP"],
                     ["Pricing", "Free up to 4 concurrent requests, commercial use included"],

@@ -14,6 +14,7 @@ import {
   PYPI_URL,
   SDK_POINTS,
   SDK_STATS,
+  SIGNUP_URL,
   MORE_FEATURES,
 } from "@/lib/sdk";
 
@@ -30,7 +31,7 @@ export default function SdkPage() {
       <PageHero
         eyebrow="Oragon SDK · Python"
         title="Run AI models inside your own software."
-        lede="Oragon is the Oragonlabs engine as a Python package. Local-first model serving for software that has to work: on hardware you don't control, with data that can't leave. One install, no signup, no API key."
+        lede="Oragon is the Oragonlabs engine as a Python package. Local-first model serving for software that has to work: on hardware you don't control, with data that can't leave. One install, no API key."
       />
 
       {/* --- Install --------------------------------------------------- */}
@@ -50,19 +51,26 @@ export default function SdkPage() {
                 </h2>
                 <p className="mt-6 max-w-[48ch] text-[17px] leading-relaxed text-ink">
                   The engine is inside the package: no compiler, no separate
-                  download, no signup. The model loads once and stays ready, so
-                  the second request doesn&apos;t pay for the first one&apos;s
-                  startup.
+                  download. The model loads once and stays ready, so the second
+                  request doesn&apos;t pay for the first one&apos;s startup.
                 </p>
                 <div className="mt-8">
                   <InstallLine command={INSTALL} />
                 </div>
                 <div className="mt-6 flex flex-wrap items-center gap-3">
                   <a
-                    href={PYPI_URL}
+                    href={SIGNUP_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="btn"
+                  >
+                    Sign up for a paid plan <Arrow />
+                  </a>
+                  <a
+                    href={PYPI_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-ghost"
                   >
                     View on PyPI <Arrow />
                   </a>
@@ -232,9 +240,8 @@ export default function SdkPage() {
                 Free unless you need more than four at once.
               </h2>
               <p className="mt-5 max-w-[48ch] text-[16px] leading-relaxed text-ink-2">
-                No signup, no token limits, and commercial use is allowed on
-                the free tier. You can ship a desktop app to someone who never
-                signs up and never connects.
+                No token limits, and commercial use is allowed on the free
+                tier. You can ship a desktop app to someone who never connects.
               </p>
               <dl className="mt-8 border border-line">
                 {[
