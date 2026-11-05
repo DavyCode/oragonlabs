@@ -130,7 +130,7 @@ export default function SdkPage() {
             <Reveal>
               <p className="eyebrow mb-6">What you can do</p>
               <h2 className="display max-w-[18ch] text-[clamp(28px,3.6vw,44px)]">
-                Everything here is free.
+                Start for free.
               </h2>
               <p className="mt-6 max-w-[62ch] text-[17px] leading-relaxed text-ink-2">
                 Three engines share one API (embedded, shared and hosted), so
