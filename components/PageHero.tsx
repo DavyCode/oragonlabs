@@ -1,12 +1,16 @@
+import type { ReactNode } from "react";
+
 export default function PageHero({
   eyebrow,
   title,
   lede,
+  actions,
   meta,
 }: {
   eyebrow: string;
   title: string;
   lede: string;
+  actions?: ReactNode;
   meta?: { k: string; v: string }[];
 }) {
   return (
@@ -23,6 +27,10 @@ export default function PageHero({
           <p className="mt-7 max-w-[62ch] text-[17px] leading-relaxed text-white/70 md:text-[18px]">
             {lede}
           </p>
+
+          {actions && (
+            <div className="mt-9 flex flex-wrap items-center gap-3">{actions}</div>
+          )}
 
           {meta && (
             <dl className="mt-12 grid gap-px border border-white/15 bg-white/15 sm:grid-cols-3">
