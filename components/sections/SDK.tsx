@@ -2,7 +2,7 @@ import Link from "next/link";
 import Reveal from "../Reveal";
 import { Arrow } from "../Icons";
 import CodeBlock, { InstallLine } from "../CodeBlock";
-import { HELLO, HELLO_OUTPUT, INSTALL, PYPI_URL, SDK_POINTS } from "@/lib/sdk";
+import { HELLO, HELLO_OUTPUT, INSTALL, PYPI_URL, SDK_POINTS, SIGNUP_URL } from "@/lib/sdk";
 
 /* Home-page highlight for the Oragon SDK. Sits straight after EdgeAI, which
    makes the efficiency argument; this is where a developer can act on it.
@@ -52,6 +52,14 @@ export default function SDK() {
                 <Link href="/sdk" className="btn btn-ghost">
                   Explore the SDK <Arrow />
                 </Link>
+                <a
+                  href={SIGNUP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-ghost"
+                >
+                  Sign up free <Arrow />
+                </a>
               </div>
             </Reveal>
 

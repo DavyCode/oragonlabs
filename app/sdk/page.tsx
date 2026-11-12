@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { pageMetadata } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
@@ -21,7 +22,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: "Oragon SDK",
   description:
-    "pip install oragon. Run AI models inside your own software, on a laptop, server or datacenter, CPU or GPU, with typed errors, validated extraction, cited document answers and an OpenAI-compatible API. Your data never leaves the machine.",
+    "pip install oragon. Run AI models inside your own software, on a laptop, server or datacenter, CPU or GPU, with typed errors, validated extraction, cited document answers, speech to text and an OpenAI-compatible API. Your data never leaves the machine.",
   path: "/sdk",
 });
 
@@ -143,8 +144,9 @@ export default function SdkPage() {
                 Start for free.
               </h2>
               <p className="mt-6 max-w-[62ch] text-[17px] leading-relaxed text-ink-2">
-                Three engines share one API (embedded, shared and hosted), so
-                where the model runs is a deployment choice, not a rewrite.
+                One API for every engine: embedded in your process, or shared
+                across processes on a paid plan, with a hosted engine to come.
+                Where the model runs is a deployment choice, not a rewrite.
               </p>
             </Reveal>
           </div>
@@ -247,20 +249,30 @@ export default function SdkPage() {
             <Reveal delay={80} className="min-w-0">
               <p className="eyebrow mb-6">Pricing &amp; your data</p>
               <h2 className="display text-[clamp(26px,3vw,36px)]">
-                Free unless you need more than four at once.
+                Free to build with, and free in production up to US$200K.
               </h2>
               <p className="mt-5 max-w-[48ch] text-[16px] leading-relaxed text-ink-2">
-                No token limits, and commercial use is allowed on the free
-                tier. You can ship a desktop app to someone who never connects.
+                Commercial use is allowed on the free tier for anyone with up to
+                US$200K a year in revenue, in money raised and, for public
+                bodies and non-profits, in budget. No limit on users or servers.
               </p>
               <dl className="mt-8 border border-line">
-                {[
-                  ["Free", "Up to 4 lanes plus the queue, and every feature, including the HTTP API and GPU serving"],
-                  ["Paid", "More than 4 lanes, many processes sharing one model, and Oragon's licensed models, encrypted on disk"],
+                {([
+                  ["Free", "Up to 4 lanes plus the queue, and every feature, including the HTTP API, GPU serving and speech to text"],
+                  ["Paid", "More than 4 lanes, many processes sharing one model, more speech, Oragon's licensed models, and production above US$200K"],
+                  [
+                    "Account",
+                    <>
+                      None for a computer&apos;s first 100,000 chat tokens, then a{" "}
+                      <a href={SIGNUP_URL} target="_blank" rel="noreferrer" className="underline">
+                        free account
+                      </a>
+                    </>,
+                  ],
                   ["Prompts & answers", "Never leave the machine. No code path could send them"],
-                  ["Telemetry", "None. No crash reports, no update checks"],
+                  ["Telemetry", "None. No crash reports, no update checks. The free tier checks in about once a week with usage counts, never content"],
                   ["Air-gapped", "Supported. Licences work offline for their whole validity period"],
-                ].map(([label, value]) => (
+                ] as [string, ReactNode][]).map(([label, value]) => (
                   <div key={label} className="spec-cell">
                     <dt className="spec-label">{label}:</dt>
                     <dd className="spec-value">{value}</dd>

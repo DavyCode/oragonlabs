@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Logo } from "./Brand";
+import { SIGN_IN_URL, SIGN_UP_URL } from "@/lib/site";
 
 const LINKS = [
   { label: "Labs", href: "/labs" },
@@ -75,6 +76,22 @@ export default function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <a
+            href={SIGN_IN_URL}
+            className={`hidden min-h-11 items-center px-2 text-[13px] font-semibold uppercase tracking-[0.5px] opacity-80 transition-opacity hover:opacity-60 md:flex ${
+              onDark ? "text-white" : "text-ink"
+            }`}
+          >
+            Sign in
+          </a>
+          <a
+            href={SIGN_UP_URL}
+            className={`hidden min-h-11 items-center px-2 text-[13px] font-semibold uppercase tracking-[0.5px] opacity-80 transition-opacity hover:opacity-60 md:flex ${
+              onDark ? "text-white" : "text-ink"
+            }`}
+          >
+            Sign up
+          </a>
           {/* Wrapped: `.btn` sets display and would beat Tailwind's `hidden`. */}
           <span className="hidden md:block">
             <Link href="/#contact" className="btn">
@@ -115,6 +132,18 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
+          <a
+            href={SIGN_IN_URL}
+            className="block border-b border-line py-3.5 text-[13px] font-semibold uppercase tracking-[0.5px]"
+          >
+            Sign in
+          </a>
+          <a
+            href={SIGN_UP_URL}
+            className="block border-b border-line py-3.5 text-[13px] font-semibold uppercase tracking-[0.5px]"
+          >
+            Sign up
+          </a>
           <Link
             href="/#contact"
             onClick={close}
