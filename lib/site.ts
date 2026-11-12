@@ -25,6 +25,17 @@ export const SITE_URL = resolveSiteUrl();
 export const SITE_NAME = "Oragonlabs";
 
 /**
+ * The Oragon console (sign up, sign in, password reset, dashboard), served by
+ * the Oragon server. Set NEXT_PUBLIC_CONSOLE_URL in Vercel to override.
+ */
+export const CONSOLE_URL = (
+  process.env.NEXT_PUBLIC_CONSOLE_URL || "https://sdk-app.oragonlabs.com"
+).replace(/\/$/, "");
+export const SIGN_IN_URL = `${CONSOLE_URL}/login`;
+/** Where a developer makes a free account, e.g. after 100,000 chat tokens. */
+export const SIGN_UP_URL = `${CONSOLE_URL}/signup`;
+
+/**
  * Per-page metadata. The root layout's `openGraph` block is inherited
  * wholesale by any page that doesn't define its own, so pages that skip
  * this would share the homepage's share card.

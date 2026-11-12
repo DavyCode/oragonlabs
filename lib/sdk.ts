@@ -1,23 +1,18 @@
+import { SIGN_UP_URL } from "./site";
+
 /* The Oragon SDK, as published on PyPI. Snippets are lifted from the package
    README (pypi.org/project/oragon); keep them in step when the API changes,
    since people will paste these straight into a terminal. No version number
    is hardcoded on purpose: PyPI is the source of truth for that. */
 
 export const PYPI_URL = "https://pypi.org/project/oragon/";
-export const SIGNUP_URL = "https://sdk-app.oragonlabs.com/";
+export const SIGNUP_URL = SIGN_UP_URL;
 export const INSTALL = "pip install oragon";
 
 export const HELLO = `from oragon import Oragon, Engine, LocalModel, user
 
-client = Oragon(
-    engine=Engine.EMBEDDED,
-    model=LocalModel.QWEN2_5_0_5B,
-)
-
-reply = client.chat.generate(
-    model=LocalModel.QWEN2_5_0_5B,
-    messages=[user("Name one primary color.")],
-)
+client = Oragon(engine=Engine.EMBEDDED, model=LocalModel.QWEN2_5_0_5B)
+reply = client.chat.generate(messages=[user("Name one primary color.")])
 print(reply.choices[0].message.content)`;
 
 export const INSTALL_STEPS = `pip install oragon        # the engine is inside the package
@@ -77,6 +72,10 @@ export const MORE_FEATURES = [
     body: "Hand it plain Python functions and act() runs the whole loop, retrying when a tool fails.",
   },
   {
+    title: "Speech to text",
+    body: "Turn a recording or a live microphone into text, in English. The audio never leaves the machine, and it needs no GPU.",
+  },
+  {
     title: "Typed errors",
     body: "Every error says whether a retry is safe. Too little memory or too long a prompt is caught before any work starts.",
   },
@@ -94,8 +93,9 @@ export const SDK_STATS = [
 export const PLATFORMS: [string, string][] = [
   ["Python", "3.9 to 3.13"],
   ["macOS 11+, Apple silicon", "Accelerated on the Apple GPU"],
-  ["Linux x86-64", "NVIDIA, AMD or Intel GPU via Vulkan, or CPU"],
-  ["Linux arm64", "CPU"],
-  ["Servers & GPUs", "pip install \"oragon[gpu]\" (Linux, NVIDIA)"],
+  ["Linux x86-64 (Ubuntu 24.04+, Debian 13+, Fedora 40+)", "CUDA, Vulkan (NVIDIA, AMD, Intel), or CPU"],
+  ["Linux arm64 (same versions)", "CPU"],
+  ["Servers & GPUs", "pip install \"oragon[gpu]\" (Linux, Python 3.10+, NVIDIA)"],
+  ["RHEL 9, Ubuntu 22.04, Debian 12", "Coming soon"],
   ["Windows, Intel Macs", "Coming soon"],
 ];

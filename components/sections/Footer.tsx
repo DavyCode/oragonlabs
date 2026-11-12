@@ -1,4 +1,5 @@
 import { Logo } from "../Brand";
+import { SIGN_IN_URL, SIGN_UP_URL } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -17,6 +18,8 @@ const COLUMNS = [
       ["Labs", "/labs"],
       ["Oragon SDK", "/sdk"],
       ["Oragon on PyPI", "https://pypi.org/project/oragon/"],
+      ["Sign up", SIGN_UP_URL],
+      ["Sign in", SIGN_IN_URL],
     ],
   },
   {
