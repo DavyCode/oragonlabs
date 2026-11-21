@@ -1,5 +1,10 @@
+import Link from "next/link";
 import { Arrow } from "../Icons";
 
+/* The 8-second test: a first-time visitor should know what Oragon is, who
+   it is for and what to do next without scrolling. One headline, one line
+   under it, two actions. Everything else lives further down or on its own
+   page. */
 export default function Hero() {
   return (
     <section
@@ -12,7 +17,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-5 pb-14 pt-32 md:px-12 md:pb-16">
         <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-[640px] flex-1">
+          <div className="max-w-[680px] flex-1">
             <p className="eyebrow mb-5 whitespace-nowrap text-white/55">
               AI Research Lab
             </p>
@@ -26,20 +31,20 @@ export default function Hero() {
               it already owns, so the data never has to leave.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a href="#contact" className="btn btn-on-dark">
-                Partner with us <Arrow />
-              </a>
+              <Link href="/sdk" className="btn btn-on-dark">
+                Get the SDK <Arrow />
+              </Link>
               <a
-                href="#pillars"
+                href="#contact"
                 className="btn btn-pill border-white/35 bg-transparent text-white hover:bg-white hover:text-black"
               >
-                See what we build <Arrow />
+                Talk to us <Arrow />
               </a>
             </div>
           </div>
 
-          {/* Floating card, mirroring the reference site's hero news card.
-              Announces the first shipped product; it opens on Voiceit's own site. */}
+          {/* Floating card: the first shipped product. It opens on Voiceit's
+              own site. */}
           <a
             href="https://voiceit.oragonlabs.com/"
             target="_blank"

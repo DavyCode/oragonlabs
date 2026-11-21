@@ -3,6 +3,7 @@ import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Contact from "@/components/sections/Contact";
+import EdgeAI from "@/components/sections/EdgeAI";
 import { Arrow } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
@@ -217,7 +218,7 @@ export default function LabsPage() {
             <Reveal>
               <p className="mt-10 text-[14px] text-grey">
                 First benchmarks are on the{" "}
-                <Link href="/#edge" className="text-ink underline">
+                <Link href="#edge" className="text-ink underline">
                   homepage
                 </Link>
                 : a 0.5B model at ~151 tokens a second on an M4 laptop, and 16
@@ -387,13 +388,16 @@ export default function LabsPage() {
             </div>
 
             <Reveal>
-              <Link href="/" className="link-arrow mt-12">
+              <Link href="/about#pillars" className="link-arrow mt-12">
                 Read the full six pillars <Arrow />
               </Link>
             </Reveal>
           </div>
         </div>
       </section>
+
+      {/* How we do it: moved here from the homepage. */}
+      <EdgeAI />
 
       <Contact
         heading="Put the research to work."

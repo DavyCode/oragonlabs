@@ -4,6 +4,11 @@ import { pageMetadata } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Contact from "@/components/sections/Contact";
+import Mission from "@/components/sections/Mission";
+import Problem from "@/components/sections/Problem";
+import Pillars from "@/components/sections/Pillars";
+import Audiences from "@/components/sections/Audiences";
+import Azure from "@/components/sections/Azure";
 import { Arrow } from "@/components/Icons";
 
 export const metadata: Metadata = pageMetadata({
@@ -129,6 +134,10 @@ export default function AboutPage() {
         */
       />
 
+      {/* Our mission, moved here from the homepage. Bone, between the dark
+          hero and the white story below. */}
+      <Mission />
+
       {/* --- Why we exist ------------------------------------------------- */}
       <section className="blueprint bg-white">
         <div className="px-5 py-24 md:px-12 md:py-32">
@@ -193,6 +202,12 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* The problem and what we stand for, moved here from the homepage.
+          Bone then white, between the white story above and the bone team
+          below. */}
+      <Problem />
+      <Pillars />
 
       {/* --- Founding team ------------------------------------------------ */}
       <section id="team" className="blueprint bg-bone">
@@ -290,6 +305,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Moved here from the homepage, which keeps only the mission line. */}
+      <Audiences />
+      <Azure />
 
       <Contact
         heading="Come build with us."

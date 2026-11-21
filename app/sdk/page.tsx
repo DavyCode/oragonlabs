@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { pageMetadata } from "@/lib/site";
+import DocsLink from "@/components/DocsLink";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import CodeBlock, { InstallLine } from "@/components/CodeBlock";
@@ -34,14 +35,19 @@ export default function SdkPage() {
         title="Run AI models inside your own software."
         lede="Oragon is the Oragonlabs engine as a Python package. Local-first model serving for software that has to work: on hardware you don't control, with data that can't leave. One install, no API key."
         actions={
-          <a
-            href={SIGNUP_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-on-dark"
-          >
-            Sign up for a license key <Arrow />
-          </a>
+          <>
+            <a
+              href={SIGNUP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-on-dark"
+            >
+              Sign up for a license key <Arrow />
+            </a>
+            <DocsLink className="btn btn-pill border-white/35 bg-transparent text-white hover:bg-white hover:text-black">
+              Read the docs <Arrow />
+            </DocsLink>
+          </>
         }
       />
 

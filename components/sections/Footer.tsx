@@ -1,5 +1,6 @@
 import { Logo } from "../Brand";
-import { SIGN_IN_URL, SIGN_UP_URL } from "@/lib/site";
+import DocsLink from "../DocsLink";
+import { DOCS_URL, SIGN_IN_URL, SIGN_UP_URL } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -16,7 +17,9 @@ const COLUMNS = [
     links: [
       ["Home", "/"],
       ["Labs", "/labs"],
+      ["Oragon models", "/models"],
       ["Oragon SDK", "/sdk"],
+      ["Docs", DOCS_URL],
       ["Oragon on PyPI", "https://pypi.org/project/oragon/"],
       ["Sign up", SIGN_UP_URL],
       ["Sign in", SIGN_IN_URL],
@@ -63,6 +66,17 @@ export default function Footer() {
                   <ul className="space-y-0 md:space-y-2.5">
                     {col.links.map(([label, href]) => {
                       const external = href.startsWith("http");
+                      // The docs open in this tab and remember the page
+                      // they were opened from, for their "← Back" links.
+                      if (href === DOCS_URL) {
+                        return (
+                          <li key={label}>
+                            <DocsLink className="inline-flex min-h-11 items-center text-[14.5px] text-ink-2 transition-colors hover:text-ink md:min-h-0">
+                              {label}
+                            </DocsLink>
+                          </li>
+                        );
+                      }
                       return (
                         <li key={label}>
                           <a

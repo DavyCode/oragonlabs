@@ -3,6 +3,7 @@ import { pageMetadata } from "@/lib/site";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Contact from "@/components/sections/Contact";
+import WhatWeBuild from "@/components/sections/WhatWeBuild";
 import { Arrow } from "@/components/Icons";
 import Link from "next/link";
 import { InstallLine } from "@/components/CodeBlock";
@@ -352,6 +353,9 @@ export default function ProductsPage() {
           </div>
         </div>
       </section>
+
+      {/* Industries: moved here from the homepage. */}
+      <WhatWeBuild />
 
       <Contact
         heading="Shape a programme before it ships."

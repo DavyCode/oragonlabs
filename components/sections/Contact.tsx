@@ -2,9 +2,12 @@ import Reveal from "../Reveal";
 import { Arrow } from "../Icons";
 
 export default function Contact({
+  eyebrow,
   heading = "Let's build intelligence that belongs here.",
   body = "Whether you're a ministry planning national AI capability or a business ready to put AI to work, we'd like to talk.",
 }: {
+  /** Optional small label above the heading. */
+  eyebrow?: string;
   heading?: string;
   body?: string;
 }) {
@@ -16,6 +19,7 @@ export default function Contact({
       <div className="px-5 py-28 md:px-12 md:py-36">
         <div className="mx-auto max-w-[1180px] text-center">
           <Reveal>
+            {eyebrow && <p className="eyebrow mb-7 text-white/45">{eyebrow}</p>}
             <h2 className="display mx-auto max-w-[18ch] text-[clamp(32px,5vw,62px)]">
               {heading}
             </h2>

@@ -25,15 +25,22 @@ export const SITE_URL = resolveSiteUrl();
 export const SITE_NAME = "Oragonlabs";
 
 /**
- * The Oragon console (sign up, sign in, password reset, dashboard), served by
- * the Oragon server. Set NEXT_PUBLIC_CONSOLE_URL in Vercel to override.
+ * The Oragon console (sign up, sign in, password reset, dashboard, docs).
+ * `npm run dev` uses the local console (`make web` in the server repository,
+ * on port 8020); builds use the live one. NEXT_PUBLIC_CONSOLE_URL overrides
+ * both.
  */
+const LOCAL_CONSOLE_URL = "http://127.0.0.1:8020";
+const LIVE_CONSOLE_URL = "https://sdk-app.oragonlabs.com";
 export const CONSOLE_URL = (
-  process.env.NEXT_PUBLIC_CONSOLE_URL || "https://sdk-app.oragonlabs.com"
+  process.env.NEXT_PUBLIC_CONSOLE_URL ||
+  (process.env.NODE_ENV === "development" ? LOCAL_CONSOLE_URL : LIVE_CONSOLE_URL)
 ).replace(/\/$/, "");
 export const SIGN_IN_URL = `${CONSOLE_URL}/login`;
 /** Where a developer makes a free account, e.g. after 100,000 chat tokens. */
 export const SIGN_UP_URL = `${CONSOLE_URL}/signup`;
+/** The SDK docs, public on the console: no account needed to read them. */
+export const DOCS_URL = `${CONSOLE_URL}/docs`;
 
 /**
  * Per-page metadata. The root layout's `openGraph` block is inherited
@@ -73,6 +80,7 @@ export function pageMetadata({
 export const ROUTES = [
   { path: "/", priority: 1 },
   { path: "/labs", priority: 0.9 },
+  { path: "/models", priority: 0.8 },
   { path: "/products", priority: 0.8 },
   { path: "/sdk", priority: 0.8 },
   { path: "/about", priority: 0.7 },

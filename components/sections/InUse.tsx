@@ -25,11 +25,38 @@ const ORGS = [
   },
 ];
 
+/* Proof at a glance, shown above the organisations in the same band. The SDK
+   figures are measured (lib/sdk.ts SDK_STATS, 16 GB Apple M4). */
+const STATS = [
+  { value: "No GPU", label: "needed to run any model on the Oragon SDK" },
+  { value: "16", label: "requests at once, CPU only" },
+  { value: "6,000", label: "request flood test, none dropped" },
+  { value: "0.8s", label: "from start to first answer" },
+];
+
+/* One band: the numbers, a dashed rule, then who runs on Oragon. Kept in one
+   section so the blueprint gutters run unbroken through both. */
 export default function InUse() {
   return (
     <section id="in-use" className="blueprint bg-white">
-      <div className="px-5 py-24 md:px-12 md:py-32">
+      <div className="px-5 py-20 md:px-12 md:py-28">
         <div className="mx-auto max-w-[1180px]">
+          <Reveal>
+            <p className="eyebrow mb-6">The Oragon SDK, measured</p>
+          </Reveal>
+          <div className="grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {STATS.map((s, i) => (
+              <Reveal key={s.label} delay={i * 60} className="h-full">
+                <div className="h-full bg-white px-6 py-7">
+                  <p className="display text-[clamp(30px,3.4vw,42px)]">{s.value}</p>
+                  <p className="mt-2 text-[15px] leading-snug text-ink-2">{s.label}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="rule-dashed mt-20 pt-20 md:mt-24 md:pt-24" />
+
           <Reveal>
             <p className="eyebrow mb-6">In use</p>
             <h2 className="display max-w-[18ch] text-[clamp(30px,4vw,48px)]">
