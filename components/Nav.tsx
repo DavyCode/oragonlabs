@@ -4,12 +4,17 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Logo } from "./Brand";
-import { SIGN_IN_URL, SIGN_UP_URL } from "@/lib/site";
+import { addFrom } from "./DocsLink";
+import { DOCS_URL, SIGN_IN_URL, SIGN_UP_URL } from "@/lib/site";
 
+// Docs live on the console (sdk-app.oragonlabs.com); next/link renders an
+// absolute href as a plain <a>.
 const LINKS = [
   { label: "Labs", href: "/labs" },
+  { label: "Models", href: "/models" },
   { label: "Products", href: "/products" },
   { label: "SDK", href: "/sdk" },
+  { label: "Docs", href: DOCS_URL },
   { label: "About", href: "/about" },
   // Investors is hidden for now; restore this link with the page.
   // { label: "Investors", href: "/investors" },
@@ -51,13 +56,15 @@ export default function Nav() {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-8 xl:flex">
           {LINKS.map((l) => {
             const active = pathname === l.href;
             return (
               <Link
                 key={l.href}
                 href={l.href}
+                onClick={l.href === DOCS_URL ? addFrom : undefined}
+                onAuxClick={l.href === DOCS_URL ? addFrom : undefined}
                 className={`flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.5px] transition-opacity hover:opacity-60 ${
                   onDark ? "text-white" : "text-ink"
                 } ${active ? "opacity-100" : "opacity-80"}`}
@@ -102,7 +109,7 @@ export default function Nav() {
             onClick={() => setOpen((v) => !v)}
             aria-label="Menu"
             aria-expanded={open}
-            className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm xl:hidden"
           >
             <span className="grid grid-cols-2 gap-[3px]">
               {[0, 1, 2, 3].map((i) => (
@@ -114,7 +121,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="border-t border-line bg-white px-5 pb-6 pt-2 lg:hidden">
+        <div className="border-t border-line bg-white px-5 pb-6 pt-2 xl:hidden">
           <Link
             href="/"
             onClick={close}
@@ -126,7 +133,10 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              onClick={close}
+              onClick={(e) => {
+                if (l.href === DOCS_URL) addFrom(e);
+                close();
+              }}
               className="block border-b border-line py-3.5 text-[13px] font-semibold uppercase tracking-[0.5px]"
             >
               {l.label}

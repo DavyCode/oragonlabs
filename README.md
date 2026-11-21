@@ -11,15 +11,16 @@ npm run build   # production build
 
 | Route | What it is |
 |---|---|
-| `/` | **Home** — the company: research lab putting AI to work |
-| `/labs` | **Labs** — the research arm: what it works on, what it publishes, where it applies. Light hero, so it reads as a distinct destination. |
-| `/about` | The lab story + founding team |
-| `/products` | Six research programmes (none shipping — see the status banner) |
-| `/investors` | Thesis, the round, use of funds, data room |
+| `/` | **Home** — built to pass the 8-second test: what Oragon is, proof, the four things we do, why CPU matters, how to start, contact. Keep it short; long-form copy belongs on the pages below. |
+| `/models` | **Oragon models** (coming soon) — CPU-first models, plus the open models the SDK runs today |
+| `/labs` | **Labs** — the research arm, plus `EdgeAI` (how we do it). Light hero, so it reads as a distinct destination. |
+| `/about` | `Mission` under the hero, the lab story, then `Problem` and `Pillars` right after the story, then the team, `Audiences` and `Azure` |
+| `/products` | Research programmes, plus `WhatWeBuild` (industries) |
+| `/sdk` | The Oragon SDK |
+| `/investors` | Thesis, the round, use of funds, data room (hidden) |
 
-`/` and `/labs` share `Contact` and the global `Nav` / `Footer`. `Mission` is
-used by `/` only — `/labs` has its own "what the lab publishes" section in that
-slot, since the company mission already leads the homepage.
+Docs are not on this site: the menu's **Docs** link goes to the public docs on
+the console (`DOCS_URL` in `lib/site.ts`, `sdk-app.oragonlabs.com/docs`).
 
 ## Components
 
@@ -33,9 +34,12 @@ slot, since the company mission already leads the homepage.
 | `components/Brand.tsx` | The "Fault O" mark, wordmark and lockup — `Mark` / `Wordmark` / `Logo` |
 | `components/Icons.tsx` | Six pillar icons + `Arrow` (inline SVG, original) |
 | `components/sections/Hero.tsx` | Homepage hero |
-| `components/sections/Mission.tsx` | Mission band — homepage only |
-| `components/sections/Problem.tsx` | The problem — bone band |
-| `components/sections/Pillars.tsx` | Six pillars — 3×2 grid |
+| `components/sections/WhatWeDo.tsx` | Homepage: Models / SDK / Products / Labs cards |
+| `components/sections/WhyCPU.tsx` | Homepage: why CPU matters — black band |
+| `components/sections/HowItWorks.tsx` | Homepage: install → pick a model → build |
+| `components/sections/Mission.tsx` | Mission band — /about, under the hero |
+| `components/sections/Problem.tsx` | The problem — bone band, /about |
+| `components/sections/Pillars.tsx` | Six pillars — 3×2 grid, /about |
 | `components/sections/EdgeAI.tsx` | How we do it — black inversion band |
 | `components/sections/WhatWeBuild.tsx` | Industries — alternating bands |
 | `components/sections/Audiences.tsx` | Governments / businesses split |

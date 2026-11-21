@@ -87,10 +87,11 @@ export default function CodeBlock({
         <button
           type="button"
           onClick={copy}
-          className="min-h-9 px-3 font-mono text-[11px] uppercase tracking-[1px] text-white/55 transition-colors hover:text-white"
-          aria-live="polite"
+          className="grid h-9 w-9 place-items-center text-white/55 transition-colors hover:text-white"
+          aria-label={copied ? "Copied" : "Copy code"}
+          title={copied ? "Copied" : "Copy"}
         >
-          {copied ? "Copied" : "Copy"}
+          <CopyIcon done={copied} />
         </button>
       </div>
       <pre className="overflow-x-auto px-5 py-5 font-mono text-[13px] leading-[1.7] text-white/80">
@@ -107,6 +108,32 @@ export default function CodeBlock({
         </div>
       )}
     </div>
+  );
+}
+
+/** Two overlapping sheets; a tick once copied. Inherits currentColor. */
+function CopyIcon({ done }: { done: boolean }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {done ? (
+        <path d="M20 6 9 17l-5-5" />
+      ) : (
+        <>
+          <rect x="9" y="9" width="12" height="12" rx="2" />
+          <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+        </>
+      )}
+    </svg>
   );
 }
 
@@ -140,17 +167,13 @@ export function InstallLine({
           ? "border-white/25 text-white hover:border-white"
           : "border-ink bg-white text-ink hover:bg-plate"
       }`}
-      aria-label={`Copy install command: ${command}`}
+      aria-label={copied ? "Copied" : `Copy install command: ${command}`}
+      title={copied ? "Copied" : "Copy"}
     >
       <span className={dark ? "text-white/40" : "text-grey"}>$</span>
       <span className="truncate">{command}</span>
-      <span
-        className={`ml-auto pl-2 text-[11px] uppercase tracking-[1px] ${
-          dark ? "text-white/45" : "text-grey"
-        }`}
-        aria-live="polite"
-      >
-        {copied ? "Copied" : "Copy"}
+      <span className={`ml-auto pl-2 ${dark ? "text-white/45" : "text-grey"}`}>
+        <CopyIcon done={copied} />
       </span>
     </button>
   );
