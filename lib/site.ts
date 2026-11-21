@@ -26,15 +26,11 @@ export const SITE_NAME = "Oragonlabs";
 
 /**
  * The Oragon console (sign up, sign in, password reset, dashboard, docs).
- * `npm run dev` uses the local console (`make web` in the server repository,
- * on port 8020); builds use the live one. NEXT_PUBLIC_CONSOLE_URL overrides
- * both.
+ * To point a local build at a local console, set NEXT_PUBLIC_CONSOLE_URL
+ * (e.g. http://127.0.0.1:8020, from `make web` in the server repository).
  */
-const LOCAL_CONSOLE_URL = "http://127.0.0.1:8020";
-const LIVE_CONSOLE_URL = "https://sdk-app.oragonlabs.com";
 export const CONSOLE_URL = (
-  process.env.NEXT_PUBLIC_CONSOLE_URL ||
-  (process.env.NODE_ENV === "development" ? LOCAL_CONSOLE_URL : LIVE_CONSOLE_URL)
+  process.env.NEXT_PUBLIC_CONSOLE_URL || "https://sdk-app.oragonlabs.com"
 ).replace(/\/$/, "");
 export const SIGN_IN_URL = `${CONSOLE_URL}/login`;
 /** Where a developer makes a free account, e.g. after 100,000 chat tokens. */
